@@ -12,6 +12,7 @@ export default defineConfig({
 			components: {
 				ThemeSelect: './src/components/ThemeSelect.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
+				Pagination: './src/components/Pagination.astro',
 			},
 			sidebar: [
 				{ label: 'Start here', slug: 'index' },
@@ -23,7 +24,7 @@ export default defineConfig({
 						{ label: 'Three senses of agent', slug: 'phase-1/three-senses' },
 						{ label: 'Workflow vs role', slug: 'phase-1/workflow-vs-role' },
 						{ label: 'Gate 0 preview', slug: 'phase-1/gate-zero-preview' },
-						{ label: 'Activity — classify one idea', slug: 'phase-1/activity-classify' },
+						{ label: 'Activity: classify one idea', slug: 'phase-1/activity-classify' },
 					],
 				},
 				{
@@ -34,7 +35,7 @@ export default defineConfig({
 						{ label: 'Seat contract', slug: 'phase-2/seat-contract' },
 						{ label: 'Deterministic + generative', slug: 'phase-2/deterministic-generative' },
 						{ label: 'Bottom-up vs top-down', slug: 'phase-2/bottom-up' },
-						{ label: 'Activity — draft a contract', slug: 'phase-2/activity-contract' },
+						{ label: 'Activity: draft a contract', slug: 'phase-2/activity-contract' },
 					],
 				},
 				{
@@ -46,7 +47,7 @@ export default defineConfig({
 						{ label: 'The productivity J-curve', slug: 'phase-3/productivity-j-curve' },
 						{ label: 'Override rate as health', slug: 'phase-3/override-rate' },
 						{ label: 'Defer the conductor', slug: 'phase-3/defer-conductor' },
-						{ label: 'Activity — one-quarter commit', slug: 'phase-3/activity-commitment' },
+						{ label: 'Activity: one-quarter commit', slug: 'phase-3/activity-commitment' },
 					],
 				},
 				{ label: 'Reference', collapsed: true, items: [{ autogenerate: { directory: 'concepts' } }] },

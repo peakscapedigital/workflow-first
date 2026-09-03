@@ -1,0 +1,41 @@
+---
+const { pagination } = Astro.locals.starlightRoute;
+const { prev, next } = pagination;
+---
+
+{
+	(prev || next) && (
+		<p class="lesson-nav print:hidden">
+			{prev && (
+				<>
+					<strong>Previous lesson:</strong>{' '}
+					<a href={prev.href}>{prev.label}</a>
+				</>
+			)}
+			{prev && next && ' · '}
+			{next && (
+				<>
+					<strong>Next lesson:</strong>{' '}
+					<a href={next.href}>{next.label}</a>
+				</>
+			)}
+		</p>
+	)
+}
+
+<style>
+	@layer starlight.components {
+		.lesson-nav {
+			margin: 0;
+			font-size: var(--sl-text-base);
+			line-height: var(--sl-line-height);
+		}
+		.lesson-nav a {
+			color: var(--sl-color-text-accent);
+			text-decoration: none;
+		}
+		.lesson-nav a:hover {
+			text-decoration: underline;
+		}
+	}
+</style>
