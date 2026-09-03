@@ -8,6 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'Workflow-First AI Enablement',
 			description: 'Think in workflow units, not chatbots.',
+			tableOfContents: false,
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/peakscapedigital/workflow-first' }],
 			components: {
 				ThemeSelect: './src/components/ThemeSelect.astro',
