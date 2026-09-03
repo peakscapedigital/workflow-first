@@ -1,16 +1,16 @@
 ---
 title: Deterministic core and generative judgment
-description: Every workflow splits into what code asserts and what a rubric grades — half-built means missing the grader.
+description: Every workflow splits into what code asserts and what a rubric grades. Half-built means missing the grader.
 ---
 
 Every workflow that uses a model for prose or judgment splits into two graded halves:
 
 | Half | Graded by | Examples |
 | --- | --- | --- |
-| **Deterministic core** | `assert` — code | Numbers reconcile, file exists, schema valid, window correct |
+| **Deterministic core** | `assert`, code | Numbers reconcile, file exists, schema valid, window correct |
 | **Generative judgment** | Rubric + gold examples | Tone, prioritization, narrative, tradeoff framing |
 
-A generate step with **no grader and no repair loop** is half-built — and half-built the same way everywhere.
+A generate step with **no grader and no repair loop** is half-built, and half-built the same way everywhere.
 
 ## Full shape
 
@@ -30,7 +30,7 @@ flowchart LR
 
 ## Portable contract
 
-What travels between implementations is not shared code — it is the pattern:
+What travels between implementations is not shared code. It is the pattern:
 
 ```json
 { "passed": false, "findings": ["Sessions 12,450 ≠ read-back 11,902"] }
@@ -40,7 +40,7 @@ Findings feed the loop. Self-reported "I'm done" does not.
 
 ## Code vs model line
 
-Push every checkable part into code first. What remains after that subtraction is the actual taste question — usually smaller than the rubric implied.
+Push every checkable part into code first. What remains after that subtraction is the actual taste question, usually smaller than the rubric implied.
 
 If the whole rubric survives as code, you have a script, whatever the process felt like.
 

@@ -12,7 +12,7 @@ The workflow unit is the **same** in all three senses. Only the wrapper changes.
 | Sense | What it is | Typical example | Own runtime / persistent memory / acts as user |
 | --- | --- | --- | --- |
 | **A. Scoped assistant** | Topic bot on a tenant: system prompt, knowledge sources, a few actions, human gates. Multi-turn chat, not multi-hour jobs | Copilot Studio agent, Power Automate flow with a chat front-end | No / only what you wire / No |
-| **B. Orchestrated LLM workflow** | A graph of steps — some deterministic, some LLM — with a defined outcome and exit condition | Scheduled reporting, review-reply worker, LangGraph state machine | No / in the store you built / No |
+| **B. Orchestrated LLM workflow** | A graph of steps, some deterministic, some LLM, with a defined outcome and exit condition | Scheduled reporting, review-reply worker, LangGraph state machine | No / in the store you built / No |
 | **C. Autonomous persistent agent** | Own runtime, own memory, runs unattended under a real or borrowed identity, coordinates with peers | Portfolio bots with their own computer and cross-run memory | Yes / Yes / Yes |
 
 **Most enterprise enablement listings mean Sense A.** A Sense-C bot would fail every governance conversation those roles name.
@@ -27,7 +27,7 @@ The workflow unit is the **same** in all three senses. Only the wrapper changes.
 | Your own technical estate | Cloudflare Worker, cron script, launchd job |
 | Build-heavy engineering client | LangGraph or similar orchestration |
 
-"Build the units, layer a thin agent on top" works in all three. Proof you can do Sense B (grader, fail-closed, typed artifacts) makes the governed Sense A version obviously in reach — even when the code does not transfer.
+"Build the units, layer a thin agent on top" works in all three. Proof you can do Sense B (grader, fail-closed, typed artifacts) makes the governed Sense A version obviously in reach, even when the code does not transfer.
 
 ## Seat vocabulary tells you which sense they mean
 
@@ -45,10 +45,10 @@ Before any build conversation, classify the ask:
 2. Is the exit condition defined, or are they buying an open-ended seat?
 3. Which wrapper does the organization already own?
 
-If the answer to (2) is "no exit condition," you are not scoping an agent — you are scoping a role-shaped chat session.
+If the answer to (2) is "no exit condition," you are not scoping an agent. You are scoping a role-shaped chat session.
 
 ## Related
 
 - [Workflow is the unit](/concepts/workflow-is-the-unit/)
 - [Gate 0](/concepts/gate-zero/)
-- [Phase 1 — Reframe](/phase-1/welcome/)
+- [Phase 1: Reframe](/phase-1/welcome/)

@@ -5,11 +5,11 @@ description: Why agent-to-agent handoffs fail, and what to verify instead.
 
 When two role-shaped agents collaborate, nobody answers a simple question: **who checks the one that spoke?**
 
-Agent A receives Agent B's *account* of what B found. The only thing that could check that account is another model with the same weakness. The failure is usually not lying — it is **summarizing**. The second agent drops the caveat, rounds the number, keeps the headline. Compressed truth and fabrication arrive in the same fluent prose with no provenance.
+Agent A receives Agent B's *account* of what B found. The only thing that could check that account is another model with the same weakness. The failure is usually not lying, it is **summarizing**. The second agent drops the caveat, rounds the number, keeps the headline. Compressed truth and fabrication arrive in the same fluent prose with no provenance.
 
 ## Build the unit instead
 
-Neither agent should be the source of truth. The competitor snapshot, the metric read-back, the graded report — these belong to **no role**. Both executors call the same unit and read the same artifact.
+Neither agent should be the source of truth. The competitor snapshot, the metric read-back, the graded report. These belong to **no role**. Both executors call the same unit and read the same artifact.
 
 The verifier is not an agent. It is the unit proving its own work.
 
@@ -19,7 +19,7 @@ The verifier is not an agent. It is the unit proving its own work.
 
 1. A typed artifact exists (file, record, structured JSON)
 2. Acceptance checks ran against it
-3. The checks passed — with findings captured when they did not
+3. The checks passed, with findings captured when they did not
 
 Self-reported completion ("I finished the task") is not evidence.
 
@@ -32,18 +32,18 @@ Across orchestrated workflows, a portable pattern:
   "passed": false,
   "findings": [
     "Sessions total 12,450 does not match GA4 read-back 11,902",
-    "MoM claim unsupported — prior month not in packet"
+    "MoM claim unsupported, prior month not in packet"
   ]
 }
 ```
 
 Findings feed a **repair loop**: grader output becomes the next prompt's input, capped tries, fail-closed. That loop separates "prompt harder" from a system.
 
-A generative step with no grader and no repair loop is **half-built** — and half-built the same way everywhere.
+A generative step with no grader and no repair loop is **half-built**: and half-built the same way everywhere.
 
 ## Conductor later, not now
 
-A conductor that asks sub-agents "how did it go?" repeats the same hop with a nicer diagram. A conductor that reads **read-backs** is different — and it cannot exist until the units report for themselves.
+A conductor that asks sub-agents "how did it go?" repeats the same hop with a nicer diagram. A conductor that reads **read-backs** is different, and it cannot exist until the units report for themselves.
 
 Defer routing layers until routing between workflows is the actual friction.
 
@@ -51,5 +51,5 @@ Defer routing layers until routing between workflows is the actual friction.
 
 - [Seat contract](/concepts/seat-contract/)
 - [Gate 0](/concepts/gate-zero/)
-- [Phase 3 — Operate](/phase-3/what-is-operate/)
-- [Case study — Weekly report](/case-study/weekly-report/)
+- [Phase 3: Operate](/phase-3/what-is-operate/)
+- [Case study: Weekly report](/case-study/weekly-report/)

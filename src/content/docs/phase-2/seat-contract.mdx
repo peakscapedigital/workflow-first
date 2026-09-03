@@ -1,9 +1,9 @@
 ---
 title: Seat contract
-description: Six fields that describe any AI seat — mapped to a workflow you can test.
+description: Six fields that describe any AI seat, mapped to a workflow you can test.
 ---
 
-Job descriptions describe a **seat**: role, tools, memory, handoffs. The durable abstraction is a **workflow contract** — same six fields, but each answers to an exit condition and evidence.
+Job descriptions describe a **seat**: role, tools, memory, handoffs. The durable abstraction is a **workflow contract**: same six fields, but each answers to an exit condition and evidence.
 
 An agent, script, Worker, cron, or human may execute the contract.
 
@@ -30,7 +30,7 @@ flowchart LR
 
 > Trigger → bounded workflow → typed artifact → independent evidence → next workflow
 
-## Worked example — weekly marketing pulse
+## Worked example: weekly marketing pulse
 
 | Field | Contract |
 | --- | --- |
@@ -38,7 +38,7 @@ flowchart LR
 | Connections | Analytics read-only, Drive write, client config |
 | Computer | Scheduled runner + metric store + grader |
 | Routines | Monday 06:00; output PDF or blocked run |
-| Skills | Window, fetch, grade, render, deliver — each named |
+| Skills | Window, fetch, grade, render, deliver: each named |
 | Handoffs | Human only on grader fail; ticket not chat |
 
 ## Rule

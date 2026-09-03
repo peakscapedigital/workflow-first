@@ -1,6 +1,6 @@
 ---
 title: Three senses of agent
-description: The word "agent" names three architectures — confusing them fails governance and build conversations.
+description: The word "agent" names three architectures, confusing them fails governance and build conversations.
 ---
 
 Job listings, vendor decks, and team whiteboards all say "agent." They rarely mean the same architecture. Using the wrong mental model in the wrong room is how Sense-C ambition gets sold into Sense-A governance reviews.
@@ -9,9 +9,9 @@ Job listings, vendor decks, and team whiteboards all say "agent." They rarely me
 
 | Sense | What it is | Typical home | Persistent identity? |
 | --- | --- | --- | --- |
-| **A — Scoped assistant** | Topic bot on a tenant: prompt, knowledge sources, a few actions, human gates | Copilot Studio, Power Automate + chat | No |
-| **B — Orchestrated workflow** | Steps — some code, some LLM — with a defined outcome and exit condition | Scheduled reporting, review workers, LangGraph | No |
-| **C — Autonomous persistent** | Own runtime, memory, runs unattended under a real or borrowed identity | Portfolio bots with cross-run memory | Yes |
+| **A, Scoped assistant** | Topic bot on a tenant: prompt, knowledge sources, a few actions, human gates | Copilot Studio, Power Automate + chat | No |
+| **B, Orchestrated workflow** | Steps, some code, some LLM, with a defined outcome and exit condition | Scheduled reporting, review workers, LangGraph | No |
+| **C, Autonomous persistent** | Own runtime, memory, runs unattended under a real or borrowed identity | Portfolio bots with cross-run memory | Yes |
 
 **Most enterprise enablement listings mean Sense A.** A Sense-C bot would fail every conversation those roles name around tenant boundaries and identity.
 
@@ -27,7 +27,7 @@ The **workflow unit is identical** in all three senses. Only the wrapper changes
 | Your technical estate | Worker, cron, script |
 | Build-heavy client | LangGraph or similar |
 
-Proof you can build Sense B (fail-closed grader, typed artifacts) makes the governed Sense A version obviously in reach — even when the code does not transfer.
+Proof you can build Sense B (fail-closed grader, typed artifacts) makes the governed Sense A version obviously in reach, even when the code does not transfer.
 
 ## Seat vocabulary tells you which sense
 
@@ -39,7 +39,7 @@ Proof you can build Sense B (fail-closed grader, typed artifacts) makes the gove
 
 ## Discussion
 
-Before any build conversation: **Which sense does this stakeholder mean?** If there is no exit condition, you are not scoping an agent — you are scoping an open-ended seat.
+Before any build conversation: **Which sense does this stakeholder mean?** If there is no exit condition, you are not scoping an agent. You are scoping an open-ended seat.
 
 :::tip[Reference]
 Full table and examples: [Three senses of agent (Reference)](/concepts/three-senses-of-agent/)
