@@ -9,7 +9,10 @@ export default defineConfig({
 			title: 'Workflow-First AI Enablement',
 			description: 'Think in workflow units, not chatbots.',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/peakscapedigital/workflow-first' }],
-			components: { ThemeSelect: './src/components/ThemeSelect.astro' },
+			components: {
+				ThemeSelect: './src/components/ThemeSelect.astro',
+				ThemeProvider: './src/components/ThemeProvider.astro',
+			},
 			sidebar: [
 				{ label: 'Start here', slug: 'index' },
 				{

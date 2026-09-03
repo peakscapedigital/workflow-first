@@ -1,0 +1,10 @@
+---
+/** Light-only site: skip OS preference and lock data-theme before paint. */
+---
+<script is:inline>
+	document.documentElement.dataset.theme = 'light';
+	try {
+		localStorage.setItem('starlight-theme', 'light');
+	} catch (_) {}
+	window.StarlightThemeProvider = { updatePickers() {} };
+</script>
