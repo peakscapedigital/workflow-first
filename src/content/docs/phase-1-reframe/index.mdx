@@ -1,0 +1,205 @@
+---
+title: "Phase 1: Reframe"
+description: Why chatbot thinking stalls, three senses of agent, workflow vs role, and Gate 0 preview.
+---
+
+## Welcome, workflow-first thinking
+
+Most AI enablement programs teach people to use a chat window. Seats get activated. Prompt libraries grow. Pilots produce demos. Then someone asks why the "SEO agent" never finishes anything, and nobody can answer, because nothing in the design said when work was done.
+
+This course teaches a different **unit of progress**: a bounded **workflow** with a named outcome, independent evidence, and an exit condition.
+
+### The three phases
+
+| Phase | You leave knowing |
+| --- | --- |
+| **1, Reframe** | Why chatbot thinking stalls; three senses of "agent"; workflow vs role |
+| **2, Design** | How to spot a high-value workflow and draft a contract for it |
+| **3, Operate** | How to run workflows with evidence, cost discipline, and realistic adoption |
+
+:::tip[Reference depth]
+Lessons teach the path. The **Reference** section (collapsed in the sidebar) holds bookmarkable deep-dives on each concept.
+:::
+
+### What you need
+
+- One real "AI agent" idea from your team (for activities)
+- Optional: printed [worksheets](/downloads/)
+
+---
+
+## The chatbot trap
+
+Enterprise AI rollouts often measure success by seats activated, prompts shared, or workshop completion. Those metrics can all move while the work does not change. The trap is treating **access to a chat window** as the unit of progress.
+
+### Three wrong units
+
+| Unit | What leadership sees | What actually happens |
+| --- | --- | --- |
+| **Seat / license** | "65% daily AI use" | People experiment; nothing ships repeatedly |
+| **Persona / role** | "We built an SEO agent" | Charter grows; context rots; drafts pile up |
+| **Prompt** | "We have a prompt library" | Judgment lives in someone's head; untestable |
+
+Each wrong unit shares a problem: **no exit condition**. There is no moment where the system can say "done", only "the session ended."
+
+### The alternative
+
+Replace the unit with **one bounded workflow** this quarter:
+
+- A named outcome ("weekly pulse PDF in Shared Drive")
+- An exit condition ("grader passed; numbers reconcile")
+- Evidence that is checked independently of the model's opinion
+
+That workflow might use AI inside it. It is not a chatbot you visit when inspired.
+
+### Discussion
+
+Ask the room: **What is our default unit today, seat, persona, or workflow?**
+
+Listen for language. "We bought Copilot" is seat thinking. "We need a research agent" is often persona thinking. "We need the weekly report to stop taking six hours" is workflow thinking.
+
+:::note[Facilitator]
+Pause here. One sentence from each person is enough. You are diagnosing the room, not debating tools.
+:::
+
+---
+
+## Three senses of agent
+
+Job listings, vendor decks, and team whiteboards all say "agent." They rarely mean the same architecture. Using the wrong mental model in the wrong room is how Sense-C ambition gets sold into Sense-A governance reviews.
+
+### The three senses
+
+| Sense | What it is | Typical home | Persistent identity? |
+| --- | --- | --- | --- |
+| **A, Scoped assistant** | Topic bot on a tenant: prompt, knowledge sources, a few actions, human gates | Copilot Studio, Power Automate + chat | No |
+| **B, Orchestrated workflow** | Steps, some code, some LLM, with a defined outcome and exit condition | Scheduled reporting, review workers, LangGraph | No |
+| **C, Autonomous persistent** | Own runtime, memory, runs unattended under a real or borrowed identity | Portfolio bots with cross-run memory | Yes |
+
+**Most enterprise enablement listings mean Sense A.** A Sense-C bot would fail every conversation those roles name around tenant boundaries and identity.
+
+**Sense B is where durable value compounds** for most teams: bounded work with graders, not open-ended personas.
+
+### Same unit, different wrapper
+
+The **workflow unit is identical** in all three senses. Only the wrapper changes:
+
+| Context | Layer on top |
+| --- | --- |
+| Microsoft 365 shop | Copilot Studio agent or Power Automate flow |
+| Your technical estate | Worker, cron, script |
+| Build-heavy client | LangGraph or similar |
+
+Proof you can build Sense B (fail-closed grader, typed artifacts) makes the governed Sense A version obviously in reach, even when the code does not transfer.
+
+### Seat vocabulary tells you which sense
+
+| They say | Likely sense |
+| --- | --- |
+| "Change the workers" / tenant assistants | A |
+| "Build agents" for one outcome | A or B |
+| "Portfolio of agents" with own identity | C |
+
+### Discussion
+
+Before any build conversation: **Which sense does this stakeholder mean?** If there is no exit condition, you are not scoping an agent. You are scoping an open-ended seat.
+
+:::tip[Reference]
+Full table and examples: [Three senses of agent (Reference)](/concepts/three-senses-of-agent/)
+:::
+
+**Worksheet:** [Three senses reference card](/downloads/three-senses-reference/)
+
+---
+
+## Workflow vs role
+
+When you build AI into operations, the durable thing to define, test, cost, and hand off is a **workflow**: bounded process, named outcome, exit condition.
+
+A **role**: "SEO agent," "analyst bot", loads context, a charter, and a growing rule list. It has no built-in moment where work is finished.
+
+### What follows from one difference
+
+| Property | Workflow | Role |
+| --- | --- | --- |
+| Testable | Reached the outcome or did not | Nothing says when it is done |
+| Costable | Cost attaches to a bounded unit | Unbounded session against a meter |
+| Diagnosable | Failure names its own step | Drift with no red signal |
+| Stateless per run | Carries its definition | Carries a compacting log |
+| Transferable | Definition can be handed over | Judgment stuck in a prompt |
+
+The role-first pattern is what most "build your AI agent" content teaches: describe the role, add context, append a rule each time it misbehaves. The charter grows. The context grows. Judgment drifts because it lives in prose that cannot be regression-tested.
+
+### The log-vs-profile diagnostic
+
+When someone insists a role is necessary, ask:
+
+> Is anything in this bot's log that is not in its profile?
+
+- **No**: the "role" is a UI skin over a workflow. The bot is disposable.
+- **Yes**: you are carrying unmanaged state. Only worth it when accumulated history genuinely helps (e.g. long-running client relationship memory). Otherwise it degrades silently.
+
+### Example
+
+A standing "SEO agent" with charter and journal produces drafts. Keeping it oriented **is** the work. A weekly report chain with no persona anywhere, pick window, fetch data, grade, publish or block, behaves more like an analyst than the agent does, and nobody named an analyst to get it.
+
+See [Case study: Weekly report](/case-study/weekly-report/) in Phase 2.
+
+:::tip[Reference]
+[Workflow is the unit](/concepts/workflow-is-the-unit/), full concept page with bottom-up vs top-down diagram.
+:::
+
+---
+
+## Gate 0 preview
+
+Before anyone sketches an "agent," two questions need separate answers. Collapsing them is how a filter plus one templated call becomes a multi-agent science project.
+
+### Stage 1: Ready?
+
+Is this process automatable at all?
+
+| Signal | Meaning |
+| --- | --- |
+| Undocumented or changes weekly | Standardize first |
+| Staff would not make the same decisions | No rubric yet, cannot grade |
+| Real blocker is data access | Corpus problem, not model problem |
+
+Often **"we need an agent" is documentation or data-access need wearing a costume.**
+
+### Stage 2: Shape?
+
+Once ready, what runs it?
+
+| Character | Shape |
+| --- | --- |
+| Clear rules, stable, structured data | Rule or script |
+| Mostly rules, messy input | Script + one templated LLM call |
+| Real judgment, fixed flow | Workflow / prompt graph |
+| Flow varies per input | Harness (full agent) |
+
+**Governing idea:** decide where non-determinism lives. The model belongs at build time or at a narrow checkpoint, not as the runtime that re-reasons over all data every execution.
+
+A cron plus a script plus one templated call is not a lesser agent. It is correct placement.
+
+### Two axes: do not conflate
+
+| Axis | Question |
+| --- | --- |
+| **Authority** | AUTOMATE / ASSIST / HUMAN, who acts? |
+| **Shape** | rule / script / workflow / harness, what runs? |
+
+They are orthogonal. A script can AUTOMATE. A harness can ASSIST.
+
+Phase 2 goes deeper on design. Phase 1 ends with an activity, classify a real team idea.
+
+:::tip[Reference]
+Full Gate 0 method: [Gate 0 (Reference)](/concepts/gate-zero/)
+:::
+
+---
+
+## Activity
+
+Ready for the hands-on block? [Start activity: classify one idea →](/phase-1-reframe/activity-classify/)
+

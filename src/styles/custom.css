@@ -28,3 +28,11 @@
 	background: var(--sl-color-gray-6);
 	color: var(--sl-color-text);
 }
+
+.sl-markdown-content a {
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+.sl-markdown-content a:hover {
+	text-decoration: underline;
+}

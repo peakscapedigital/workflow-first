@@ -1,41 +1,90 @@
 ---
-const { pagination } = Astro.locals.starlightRoute;
-const { prev, next } = pagination;
+/** Phase-aware footer nav: primary Continue CTA, secondary back link. */
+const { id } = Astro.locals.starlightRoute;
+const slug = (id ?? '').replace(/\/index$/, '');
+
+type NavLink = { href: string; label: string };
+
+const nav: Record<string, { back?: NavLink; continue?: NavLink }> = {
+	index: {
+		continue: { href: '/phase-1-reframe/', label: 'Phase 1: Reframe' },
+	},
+	'phase-1-reframe': {
+		back: { href: '/', label: 'Start here' },
+		continue: { href: '/phase-2-design/', label: 'Phase 2: Design' },
+	},
+	'phase-1-reframe/activity-classify': {
+		back: { href: '/phase-1-reframe/', label: 'Phase 1: Reframe' },
+		continue: { href: '/phase-2-design/', label: 'Phase 2: Design' },
+	},
+	'phase-2-design': {
+		back: { href: '/phase-1-reframe/', label: 'Phase 1: Reframe' },
+		continue: { href: '/phase-3-operate/', label: 'Phase 3: Operate' },
+	},
+	'phase-2-design/activity-contract': {
+		back: { href: '/phase-2-design/', label: 'Phase 2: Design' },
+		continue: { href: '/phase-3-operate/', label: 'Phase 3: Operate' },
+	},
+	'phase-3-operate': {
+		back: { href: '/phase-2-design/', label: 'Phase 2: Design' },
+		continue: { href: '/case-study/weekly-report/', label: 'Case study' },
+	},
+	'phase-3-operate/activity-commitment': {
+		back: { href: '/phase-3-operate/', label: 'Phase 3: Operate' },
+	},
+};
+
+const { back, continue: forward } = nav[slug] ?? {};
 ---
 
 {
-	(prev || next) && (
-		<p class="lesson-nav print:hidden">
-			{prev && (
-				<>
-					<strong>Previous lesson:</strong>{' '}
-					<a href={prev.href}>{prev.label}</a>
-				</>
+	(back || forward) && (
+		<nav class="phase-nav print:hidden" aria-label="Course navigation">
+			{back && (
+				<a class="phase-nav-back" href={back.href}>
+					← {back.label}
+				</a>
 			)}
-			{prev && next && ' · '}
-			{next && (
-				<>
-					<strong>Next lesson:</strong>{' '}
-					<a href={next.href}>{next.label}</a>
-				</>
+			{forward && (
+				<a class="phase-nav-continue" href={forward.href}>
+					Continue to {forward.label} →
+				</a>
 			)}
-		</p>
+		</nav>
 	)
 }
 
 <style>
 	@layer starlight.components {
-		.lesson-nav {
-			margin: 0;
-			font-size: var(--sl-text-base);
-			line-height: var(--sl-line-height);
+		.phase-nav {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-top: 2rem;
 		}
-		.lesson-nav a {
-			color: var(--sl-color-text-accent);
+		.phase-nav-back {
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-gray-3);
+			text-decoration: underline;
+		}
+		.phase-nav-back:hover {
+			color: var(--sl-color-text);
+		}
+		.phase-nav-continue {
+			display: inline-flex;
+			align-items: center;
+			padding: 0.625rem 1.25rem;
+			border-radius: 0.375rem;
+			background: var(--sl-color-accent);
+			color: var(--sl-color-black);
+			font-weight: 600;
 			text-decoration: none;
 		}
-		.lesson-nav a:hover {
-			text-decoration: underline;
+		.phase-nav-continue:hover {
+			background: var(--sl-color-accent-high);
+			color: var(--sl-color-black);
 		}
 	}
 </style>

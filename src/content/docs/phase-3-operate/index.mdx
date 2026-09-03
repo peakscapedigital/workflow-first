@@ -1,0 +1,163 @@
+---
+title: "Phase 3: Operate"
+description: Evidence not trust, costing, the productivity J-curve, override rate, and deferring the conductor.
+---
+
+## What is the Operate phase?
+
+Design produced a contract on paper. Operate is what keeps it **honest in production**: verification without agent trust, per-workflow costing, adoption curves, and knowing when **not** to add another agent.
+
+Phase 3 is not "turn on the chatbot." It is:
+
+- Evidence and graders stay true after launch
+- Costs attach to the workflow unit, not the vendor invoice
+- People know when to override, and when zero override is a bad sign
+- Routing layers wait until routing is the actual friction
+
+
+
+---
+
+## Evidence not trust
+
+When two role-shaped agents collaborate, nobody answers: **who checks the one that spoke?**
+
+Agent A receives Agent B's *account* of what happened. The only checker available is another model with the same weakness. The failure is usually not lying, it is **summarizing**. The caveat drops. The number rounds. The headline stays.
+
+Compressed truth and fabrication arrive in the same fluent prose with no provenance.
+
+### Build the unit instead
+
+Neither agent should be the source of truth. The metric read-back, the graded packet, the reconciled export belong to **no role**. Executors call the same unit and read the same artifact.
+
+The verifier is not an agent. It is the unit proving its own work.
+
+### Done means
+
+1. A **typed artifact** exists (file, record, structured output)
+2. **Acceptance checks** ran against it
+3. Checks **passed**: with findings captured when they did not
+
+"I finished the task" from the model is not evidence.
+
+### Grading contract
+
+```json
+{
+  "passed": false,
+  "findings": [
+    "Sessions total 12,450 does not match GA4 read-back 11,902"
+  ]
+}
+```
+
+Findings feed a repair loop (capped retries, fail-closed). That is the piece that separates systems from prompt chains.
+
+### Conductor later
+
+A conductor that asks sub-agents "how did it go?" repeats the same hop with a nicer diagram. A conductor that reads **read-backs** is different, and cannot exist until units report for themselves.
+
+:::tip[Reference]
+[Evidence not trust (Reference)](/concepts/evidence-not-trust/)
+:::
+
+---
+
+## Costing boundary
+
+"The workflow is the unit" is also an **accounting boundary**. Finance asks about AI spend. Operators need an answer that ties to **work completed**, not seats or tokens in aggregate.
+
+### Price the workflow
+
+| Work type | Economics |
+| --- | --- |
+| Scheduled, bounded, cheap per run | Metered keys **per workflow** often win |
+| Heavy, interactive, unpredictable | Flat subscription may win |
+
+Pin the **cheapest model that finishes the unit**. A weekly report does not need the same model as an interactive research session.
+
+### What metered buys you
+
+- Per-run cost visible in logs
+- Comparison across workflows ("reporting vs replies")
+- Decision to downgrade model when grader still passes
+
+Flat seat products bill every task at one rate against an allowance. Workable for one operator, opaque at scale.
+
+### Discussion
+
+Pick one workflow from Phase 2 activity. **What would you meter?** (runs per week × cost per run, not "ChatGPT spend this month.")
+
+---
+
+## The productivity J-curve
+
+AI transformation narratives show the upward slope. Operators live the dip first: new steps, new checks, new failure modes before toil drops.
+
+That J-curve is **expected**, not a sign the initiative failed. Enablement that promises instant speed loses credibility when week three feels slower than week zero.
+
+### Safe practice is not a training module
+
+"Mistakes don't affect performance reviews" is an **environment** intervention, it belongs in how the org rewards experimentation, not in slide 14 of a deck.
+
+When plans compress from ninety days to six weeks, training modules survive and environment changes get cut. Name them correctly so they survive scope negotiation.
+
+### What to tell leadership
+
+- Leading indicator early: **workflow completion with evidence**, not seat count
+- Lagging indicator: hours saved, error rate, cycle time, on **one named workflow**
+- Narrative wins come **after** one unit proves, not before
+
+---
+
+## Override rate as health
+
+Teams often celebrate "nobody contradicts the model." That can mean healthy trust, or **automation bias**, **psychological safety gap**, or **genuine inability to spot errors**.
+
+A cited healthy band for consequential outputs is often **10 to 30% override**: enough skepticism, not constant rubber-stamping.
+
+### Two different causes
+
+| Observation | Possible cause | Intervention |
+| --- | --- | --- |
+| Zero override, people silent | Fear of looking wrong | Safe practice, leadership modeling correction |
+| Zero override, people confident | Cannot detect errors | Skill practice, planted-error exercises |
+| Override always | Grader too loose or wrong task | Fix workflow, not training |
+
+Training on "AI limitations" addresses **knowledge**. It does not fix **motivation** or **skill** gaps, diagnose which stall you have.
+
+### Planted-error exercises
+
+Run a output with a deliberate mistake. Can reviewers catch it under time pressure? That measures **skill under realistic conditions**, not attendance.
+
+---
+
+## Defer the conductor
+
+Multi-agent diagrams look like progress. A conductor that collects verbal status from sub-agents is often **the same trust hop** with more boxes.
+
+### When a conductor helps
+
+- Multiple **reliable** workflows already exist
+- Each produces typed artifacts + `{passed, findings[]}`
+- The friction is **which workflow next**, not **how to do the work**
+- Escalation paths are defined when evidence fails
+
+### When to defer
+
+- Units do not self-report yet
+- "Agent A asks Agent B how it went" is the coordination model
+- The team has zero workflows with graders. Adding a manager agent multiplies unverifiable summaries
+
+Per-workflow executors with shared evidence beat all-to-all agent chat.
+
+### Rule
+
+**Validation before coordination.** The router arrives after underlying workflows are reliable. It inspects evidence; it does not silently redo specialist work.
+
+---
+
+## Activity
+
+Ready for the hands-on block? [Start activity: one-quarter commitment →](/phase-3-operate/activity-commitment/)
+
