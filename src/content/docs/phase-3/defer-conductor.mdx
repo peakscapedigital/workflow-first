@@ -1,0 +1,27 @@
+---
+title: Defer the conductor
+description: Add a routing layer only when routing between workflows is the actual friction.
+---
+
+Multi-agent diagrams look like progress. A conductor that collects verbal status from sub-agents is often **the same trust hop** with more boxes.
+
+## When a conductor helps
+
+- Multiple **reliable** workflows already exist
+- Each produces typed artifacts + `{passed, findings[]}`
+- The friction is **which workflow next**, not **how to do the work**
+- Escalation paths are defined when evidence fails
+
+## When to defer
+
+- Units do not self-report yet
+- "Agent A asks Agent B how it went" is the coordination model
+- The team has zero workflows with graders — adding a manager agent multiplies unverifiable summaries
+
+Per-workflow executors with shared evidence beat all-to-all agent chat.
+
+## Rule
+
+**Validation before coordination.** The router arrives after underlying workflows are reliable. It inspects evidence; it does not silently redo specialist work.
+
+**Next:** [Activity — one-quarter commit](/phase-3/activity-commitment/)
