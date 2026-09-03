@@ -1,0 +1,72 @@
+---
+title: Module 2 — Design
+description: "~35 min. Find high-value workflows and draft a workflow contract."
+---
+
+**Time:** ~35 minutes  
+**Goal:** Identify one candidate workflow and draft a contract — not a persona.
+
+## 1. The shape test (~8 min)
+
+Look for work where expert time goes to **finding and verifying**, not deciding:
+
+| Signal | What it means |
+| --- | --- |
+| Source of truth exists but is fragmented or stale | Corpus problem, not model problem |
+| Being wrong is expensive | Worth grading and gating |
+| Expert hours spent looking things up | High-value automation candidate |
+
+Discuss: Where does your team spend time verifying rather than deciding?
+
+## 2. Seat contract → workflow contract (~10 min)
+
+Map six fields to one bounded outcome. See [Seat contract](/concepts/seat-contract/).
+
+Every field must answer: **how do we know this step succeeded?**
+
+## 3. Deterministic core + generative judgment (~7 min)
+
+Every workflow splits into:
+
+- **Deterministic core** — graded by assert (numbers reconcile, file exists, schema valid)
+- **Generative judgment** — graded by rubric with gold examples
+
+A generate step with no grader is half-built.
+
+Full shape: compute → context pack → generate → grade → repair loop → escalate.
+
+## 4. Bottom-up vs top-down (~10 min)
+
+| Approach | Pattern | Typical result |
+| --- | --- | --- |
+| Top-down | Charter, persona, growing rule list | Drafts; orientation is the work |
+| Bottom-up | Chain of small steps + fail-closed gate | Runs; nobody named an agent |
+
+See [Case study — Weekly report](/case-study/weekly-report/) for bottom-up in practice.
+
+:::note[Honest caveat]
+Building capabilities before the persona is a working hypothesis. Test it on your domain: build one unit with a grader, then see how thin the layer on top needs to be.
+:::
+
+---
+
+## Activity (~15 min)
+
+Draft a **workflow contract** for one real process (use the template):
+
+1. **Outcome** — one sentence, measurable
+2. **Exit condition** — what proves done?
+3. **Refusal boundary** — when must it block?
+4. **Triggers** — clock, event, or human start?
+5. **Evidence** — what gets checked before handoff?
+
+Pair review: can a stranger tell when this workflow succeeded?
+
+---
+
+## Downloads
+
+- [Workflow contract template](/downloads/workflow-contract-template/)
+- [Gate 0 decision tree](/downloads/gate-zero-decision-tree/)
+
+**Previous:** [Module 1 — Reframe](/course/module-1-reframe/) · **Next:** [Module 3 — Operate](/course/module-3-operate/)

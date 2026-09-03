@@ -1,40 +1,47 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Workflow-First AI Enablement
+description: Think in workflow units, not chatbots. The operating model for AI agents in real work.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: The workflow is the unit — not the chatbot, the seat, or the persona.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Start the course
+      link: /course/module-1-reframe/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Browse concepts
+      link: /concepts/workflow-is-the-unit/
+      icon: document
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+Most AI enablement programs teach people to use a chat window. That stalls at scale: unbounded sessions, drifting prompts, and no way to know when work is done.
+
+This site teaches a different unit of progress: **a bounded workflow** with a named outcome, independent evidence, and an exit condition. The same unit works whether the wrapper is a Copilot Studio agent, a cron job, or an orchestrated LLM graph.
+
+## Two ways to use this site
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Course (~90 min)" icon="open-book">
+		Three modules for a team session: reframe how you think about agents, design one workflow unit, then operate it with evidence and cost discipline. Start with [Module 1](/course/module-1-reframe/).
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Concepts (reference)" icon="document">
+		Bookmarkable pages for the mental map: [workflow vs role](/concepts/workflow-is-the-unit/), [three senses of agent](/concepts/three-senses-of-agent/), [Gate 0](/concepts/gate-zero/), and more.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Downloads" icon="download">
+		Worksheets and decision trees for facilitators. [Download pack](/downloads/).
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Case study" icon="magnifier">
+		A weekly report that runs without a persona — and blocks delivery when the numbers are wrong. [See the workflow](/case-study/weekly-report/).
 	</Card>
 </CardGrid>
+
+## What you leave with
+
+- Vocabulary to separate chatbot thinking from workflow design
+- A diagnostic for when "we need an agent" means something else
+- A workflow contract template you can draft for one real process on your team
+- A case study you can point to when someone asks what "good" looks like
+
+Facilitators: read the [Facilitator note](/facilitator/) before running a session.

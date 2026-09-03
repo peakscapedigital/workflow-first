@@ -1,0 +1,50 @@
+---
+title: Gate 0 decision tree
+description: Ready? and Shape? flowchart for Module 2.
+---
+
+# Gate 0 Decision Tree
+
+## Stage 1: Ready?
+
+Answer **no** (stop or standardize first) if:
+
+- Process is undocumented or changes weekly
+- Staff would not make the same decisions (no shared criteria)
+- Real blocker is data access or permissions, not automation
+
+Answer **yes** → Stage 2.
+
+## Stage 2: Shape?
+
+```mermaid
+flowchart TD
+  Start[Process ready?] --> Rules{Clear rules + stable + structured?}
+  Rules -->|Yes| Script[Rule or script]
+  Rules -->|Mostly rules, messy input| ScriptCall[Script + one templated call]
+  Rules -->|Judgment + fixed flow| Workflow[Workflow / prompt graph]
+  Rules -->|Flow varies per input| Harness[Harness — full agent]
+```
+
+| Shape | When |
+| --- | --- |
+| **Rule / script** | Clear rules, stable process, structured data |
+| **Script + one call** | Mostly rules; input needs normalization |
+| **Workflow** | Real judgment; flow is fixed |
+| **Harness** | Flow genuinely varies per input |
+
+## Subtraction check
+
+Before choosing harness: push every checkable part into code. What remains is the actual taste question.
+
+## Authority (separate decision)
+
+| | |
+| --- | --- |
+| AUTOMATE | System acts |
+| ASSIST | System drafts; human decides |
+| HUMAN | Person decides and acts |
+
+Shape and authority are independent.
+
+[← Back to Downloads](/downloads/)

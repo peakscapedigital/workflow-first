@@ -2,25 +2,22 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
 export default defineConfig({
+	site: 'https://workflow-first.pages.dev',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Workflow-First AI Enablement',
+			description: 'Think in workflow units, not chatbots.',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/jasonleinart/workflow-first' }],
 			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
-				},
+				{ label: 'Start here', slug: 'index' },
+				{ label: 'Concepts', items: [{ autogenerate: { directory: 'concepts' } }] },
+				{ label: 'Course', items: [{ autogenerate: { directory: 'course' } }] },
+				{ label: 'Case study', slug: 'case-study/weekly-report' },
+				{ label: 'Downloads', slug: 'downloads' },
+				{ label: 'Facilitator note', slug: 'facilitator' },
 			],
+			customCss: ['./src/styles/custom.css'],
 		}),
 	],
 });

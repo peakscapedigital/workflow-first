@@ -1,0 +1,67 @@
+---
+title: Gate 0
+description: Before you build an agent — is the process ready, and what shape should automation take?
+---
+
+**Gate 0** answers two questions that people collapse into one:
+
+1. **Ready?** — Is this process automatable at all?
+2. **Shape?** — Rule, script, workflow, or harness?
+
+Do not run both in one sitting. Stage 1 can halt the engagement. Stage 2 is a practitioner decision after stage 1 clears.
+
+## Two axes — do not conflate them
+
+| Axis | Question | Values |
+| --- | --- | --- |
+| **Authority** | Who decides and who acts? | AUTOMATE / ASSIST / HUMAN |
+| **Shape** | What runs it? | rule / script / workflow / harness |
+
+They are orthogonal. A script can be AUTOMATE. A harness can be ASSIST. Treating "needs judgment" as "needs an agent" is how a filter plus one templated call becomes a multi-agent system.
+
+## Stage 1: Ready?
+
+Ask whether the process is standardized enough to automate:
+
+- **Documentation** — Does it describe all steps, not just the happy path?
+- **Micro-decisions** — How many small judgment calls keep it moving? (High count is the honest agent trigger.)
+- **Criteria clarity** — Would different staff make the same decisions? If not, no rubric is constructible yet.
+
+**RED signal:** the process changes every week, nobody agrees what "done" means, or the real work is finding data that lives in six places nobody will connect.
+
+Often "we need an agent" is a **documentation or data-access need** wearing a costume.
+
+## Stage 2: Shape?
+
+| Process character | Shape | Where the model goes |
+| --- | --- | --- |
+| Clear rules, stable, structured data | **Rule or script** | Build time only — generate once, never call at runtime |
+| Mostly rules, messy input | **Script + one templated call** | One narrow call normalizes input; code decides |
+| Real judgment, fixed flow | **Workflow / prompt graph** | Author the graph; do not improvise each run |
+| Flow varies per input | **Harness** | The only cell that earns a full agent |
+
+**Governing principle:** decide where non-determinism is allowed to live. The model belongs at build time, or at a narrow checkpoint inside a durable workflow — not as the runtime that re-reasons over all data on every execution.
+
+A cron plus a script plus one templated call is not a lesser agent. It is correct placement.
+
+## The subtraction that kills the agent
+
+Before accepting "needs judgment," push every checkable part into code. What remains after that subtraction is the actual taste question — and it is smaller than the rubric implies.
+
+If the whole rubric survives as code, you have a script, whatever the process felt like.
+
+## Quick discriminator
+
+> Does the output need my interpretation, or is the output itself the value?
+
+If the output needs interpretation, you are building a draft-generator. The human is the runtime. That is ASSIST — and it caps blast radius.
+
+## Agency is a dial, not a fork
+
+Run Gate 0 at **step grain**, not system grain. A real job is nine steps where six AUTOMATE, two ASSIST, and one stays HUMAN. Only steps that survive codification reach the shape table.
+
+## Related
+
+- [Workflow is the unit](/concepts/workflow-is-the-unit/)
+- [Seat contract](/concepts/seat-contract/)
+- [Module 2 — Design](/course/module-2-design/)

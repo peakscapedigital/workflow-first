@@ -1,0 +1,54 @@
+---
+title: Case study — Weekly report
+description: A bottom-up workflow that runs without a persona and blocks delivery when numbers are wrong.
+---
+
+This case study shows **Sense B**: an orchestrated workflow with a defined outcome and exit condition. There is no analyst persona, charter, or journal anywhere in the chain.
+
+## What it does
+
+On a schedule, the system:
+
+1. Selects the reporting window
+2. Fetches missing metrics from live analytics
+3. Joins client configuration and ground truth
+4. Grades the packet — numbers must reconcile
+5. **Blocks delivery** if grading fails
+6. Publishes to Shared Drive only when evidence passes
+
+Nobody described an analyst to get analyst-like output.
+
+## Contrast with role-shaped approach
+
+| Role-shaped (top-down) | Workflow-shaped (this case) |
+| --- | --- |
+| Charter grows each failure | Steps have named acceptance checks |
+| Re-orient every session | Run N identical to run 1 |
+| Produces drafts | Produces or refuses |
+| "Agent" in name | No persona in architecture |
+
+## The diagram
+
+Open the full workflow map (Mermaid diagram, swimlanes, controls):
+
+**[Open workflow diagram →](/case-studies/class-email.html)**
+
+The diagram shows actors (human, system, assist), stalls, and assurance steps — the same vocabulary you would use when drafting your own contract.
+
+## What to notice
+
+- **Human floor** appears only where judgment or approval is required — not between every step
+- **Assurance** is a step with evidence, not an agent asking "did it go well?"
+- **Exit condition** is explicit: delivered PDF with reconciled numbers, or blocked with findings
+
+## Discussion prompts
+
+1. Where would a chatbot version of this fail silently?
+2. Which steps must stay deterministic vs generative?
+3. What is the exit condition in one sentence?
+
+## Related
+
+- [Workflow is the unit](/concepts/workflow-is-the-unit/)
+- [Evidence not trust](/concepts/evidence-not-trust/)
+- [Module 2 — Design](/course/module-2-design/)

@@ -1,0 +1,54 @@
+---
+title: Three senses of agent
+description: The word "agent" names three different architectures. Confusing them is the most common enablement mistake.
+---
+
+In job listings, team meetings, and vendor decks, **agent** carries at least three different meanings. Using the wrong mental model in the wrong room fails governance reviews and wastes build time.
+
+The workflow unit is the **same** in all three senses. Only the wrapper changes.
+
+## The three senses
+
+| Sense | What it is | Typical example | Own runtime / persistent memory / acts as user |
+| --- | --- | --- | --- |
+| **A. Scoped assistant** | Topic bot on a tenant: system prompt, knowledge sources, a few actions, human gates. Multi-turn chat, not multi-hour jobs | Copilot Studio agent, Power Automate flow with a chat front-end | No / only what you wire / No |
+| **B. Orchestrated LLM workflow** | A graph of steps — some deterministic, some LLM — with a defined outcome and exit condition | Scheduled reporting, review-reply worker, LangGraph state machine | No / in the store you built / No |
+| **C. Autonomous persistent agent** | Own runtime, own memory, runs unattended under a real or borrowed identity, coordinates with peers | Portfolio bots with their own computer and cross-run memory | Yes / Yes / Yes |
+
+**Most enterprise enablement listings mean Sense A.** A Sense-C bot would fail every governance conversation those roles name.
+
+**Sense B is where durable value compounds** for most mid-market teams: bounded workflows with graders, not open-ended personas.
+
+## Same unit, different wrapper
+
+| Your context | The layer on top |
+| --- | --- |
+| Microsoft 365 shop | Copilot Studio agent or Power Automate flow |
+| Your own technical estate | Cloudflare Worker, cron script, launchd job |
+| Build-heavy engineering client | LangGraph or similar orchestration |
+
+"Build the units, layer a thin agent on top" works in all three. Proof you can do Sense B (grader, fail-closed, typed artifacts) makes the governed Sense A version obviously in reach — even when the code does not transfer.
+
+## Seat vocabulary tells you which sense they mean
+
+| They say | Likely sense |
+| --- | --- |
+| "Change the workers" / tenant-scoped assistants | A |
+| "Build the agents" for a specific outcome | A or B |
+| "Run a portfolio of agents" with own identity | C |
+
+## How to use this
+
+Before any build conversation, classify the ask:
+
+1. Which sense does the stakeholder mean?
+2. Is the exit condition defined, or are they buying an open-ended seat?
+3. Which wrapper does the organization already own?
+
+If the answer to (2) is "no exit condition," you are not scoping an agent — you are scoping a role-shaped chat session.
+
+## Related
+
+- [Workflow is the unit](/concepts/workflow-is-the-unit/)
+- [Gate 0](/concepts/gate-zero/)
+- [Module 1 — Reframe](/course/module-1-reframe/)

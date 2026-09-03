@@ -1,0 +1,420 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sugar House — Class email</title>
+<style>
+:root{--ground:#f5f7f7;--surface:#fff;--raised:#eef2f2;--ink:#161a1e;--muted:#58636b;
+--faint:#7d878e;--border:#dde2e2;--rule:#c9d1d1;--teal:#1f5c7c;--amber:#9a680d;
+--green:#2f6a38;--chip:#eaeeee;--shadow:0 1px 2px rgba(20,30,35,.06),0 6px 20px rgba(20,30,35,.05)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--ground:#0f1317;--surface:#161b21;
+--raised:#1c2229;--ink:#e7ecec;--muted:#9ba5ac;--faint:#7c868d;--border:#262e35;--rule:#313b43;
+--teal:#6aacd0;--amber:#d9a444;--green:#74b67f;--chip:#1f262d;
+--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.28)}}
+:root[data-theme=dark]{--ground:#0f1317;--surface:#161b21;--raised:#1c2229;--ink:#e7ecec;
+--muted:#9ba5ac;--faint:#7c868d;--border:#262e35;--rule:#313b43;--teal:#6aacd0;--amber:#d9a444;
+--green:#74b67f;--chip:#1f262d;--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.28)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);line-height:1.6;font-size:16px;
+font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1020px;margin:0 auto;padding:clamp(28px,5vw,60px) clamp(18px,4vw,38px) 90px}
+h1,h2,h3{font-family:ui-serif,"Iowan Old Style",Palatino,Georgia,serif;letter-spacing:-.01em;
+text-wrap:balance;font-weight:600}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:0 0 6px}
+h2{font-size:24px;margin:52px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--rule)}
+h3{font-size:18px;margin:32px 0 10px}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:70ch}
+li{margin-bottom:7px;color:var(--muted)}
+li strong,td strong,p strong{color:var(--ink);font-weight:600}
+p{color:var(--muted)}
+blockquote{margin:0 0 18px;padding:4px 0 4px 20px;border-left:3px solid var(--teal);
+color:var(--ink);font-family:ui-serif,"Iowan Old Style",Palatino,Georgia,serif;
+font-size:18px;line-height:1.5;max-width:64ch}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em;
+background:var(--raised);border:1px solid var(--border);border-radius:3px;padding:1px 5px;color:var(--ink)}
+pre.code{overflow-x:auto;background:var(--raised);border:1px solid var(--border);
+border-radius:4px;padding:14px 16px}
+pre.code code{background:none;border:none;padding:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:4px;
+background:var(--surface);box-shadow:var(--shadow);margin:0 0 20px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+font-weight:700;padding:12px 15px;border-bottom:1px solid var(--rule);background:var(--raised);white-space:nowrap}
+td{padding:13px 15px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.diagram{background:var(--surface);border:1px solid var(--border);border-radius:4px;
+padding:22px 14px;overflow-x:auto;box-shadow:var(--shadow);margin:0 0 22px}
+pre.mermaid{display:flex;justify-content:center;min-width:640px;margin:0}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:3px;
+font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+border:1px solid var(--border);background:var(--chip);color:var(--muted)}
+.chip.target{color:var(--amber);border-color:var(--amber)}
+.chip.open{color:var(--amber);border-color:var(--amber)}
+.doc{padding-top:10px}
+.doc+.doc{margin-top:64px;border-top:1px solid var(--rule)}
+footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--rule);
+color:var(--faint);font-size:13px}
+</style></head><body><div class="wrap">
+<div class="eyebrow">sugarhouse · class-email</div>
+<h1>Class email</h1>
+<p>Workflow bundle. Every section is generated from the markdown beside it; edit the source, not this file.</p>
+<div class="doc"><div class="chips">
+<span class="chip ">discovery</span>
+<span class="chip ">2-assess</span>
+<span class="chip target">open</span>
+<span class="chip ">updated 2026-08-20</span>
+</div>
+<h1>Class email campaign — discovery</h1>
+<p>Current state of the Mixology class email workflow, mapped from the two recipes, the two skills, and the runners. <strong>No interview was conducted.</strong> This document can claim what the files say; it cannot claim how often the second slice is actually invoked.</p>
+<h2>Why the process exists</h2>
+<p>A class has a date, a page, and notes. The outcome is a scheduled Brevo draft that sells that class without burning the voice and measurement discipline of the rum, absinthe, World Whisky, and Cocktail Foundations sends.</p>
+<p>The scoreboard is already named: clicks and ticket sales. Opens are directional because Apple Mail Privacy Protection inflates them.</p>
+<h2>SIPOC</h2>
+<p>Scoping first, per <code>vault/wkm/notes/process-mapping-methods.md</code>. Boundary: starts when Jason names a class (or Mixology number), a date, send dates, and a source file. Ends when a Brevo campaign exists with <code>scheduledAt</code> set and has been fetched back. Sending is outside this boundary — the human floor is hitting schedule, not clicking send-now.</p>
+<div class="tablewrap"><table><thead><tr><th>Suppliers</th><th>Inputs</th><th>Process</th><th>Outputs</th><th>Customers</th></tr></thead><tbody><tr><td>Live class page</td><td>Class name, date, source file</td><td>1. Research and write the brief</td><td>Campaign brief</td><td>Class prospects</td></tr><tr><td>Class notes / deck</td><td>Send dates, audience</td><td>2. Check the brief</td><td><code>email/builds/&lt;slug&gt;-&lt;term&gt;.json</code></td><td>Segment Marketable (All), Visitor excluded</td></tr><tr><td>Prior Brevo campaigns</td><td>Hero file, after copy lock</td><td>3. Edit copy and name the hero</td><td>Scheduled Brevo draft</td><td>The operator, who still approves</td></tr><tr><td><code>email/compose.mjs</code></td><td>Brevo account, live IDs</td><td>4. Compose HTML and create the draft</td><td></td><td></td></tr><tr><td>Canon (<code>measurement-plan.md</code>, <code>brand-narrative.md</code>)</td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<h2>Current state swimlane</h2>
+<p>Lanes are actors. The red edge is the handoff the two skills were split to create, and the step that leaves a finished brief with no campaign.</p>
+<div class="diagram"><pre class="mermaid">flowchart LR
+  subgraph JN[&quot;JASON — starts it, locks copy, picks the picture&quot;]
+    direction TB
+    J1([&quot;1 · Name the class, dates,&lt;br/&gt;source file&quot;]):::human
+    J2([&quot;4 · Edit the brief&quot;]):::human
+    J3([&quot;5 · Fill hero Filename&lt;br/&gt;and Location&quot;]):::stall
+    J4([&quot;8 · Check before&lt;br/&gt;scheduled time&quot;]):::human
+  end
+
+  subgraph SK1[&quot;sh-class-campaign — recipe: class-campaign-playbook.md&quot;]
+    direction TB
+    A1[&quot;2 · Research live page,&lt;br/&gt;notes, prior sends&quot;]:::assist
+    A2[&quot;3 · Write the brief,&lt;br/&gt;leave hero empty&quot;]:::assist
+  end
+
+  subgraph GT[&quot;GATE&quot;]
+    direction TB
+    G1{&quot;check-brief.py&lt;br/&gt;em dash, UTM, emoji,&lt;br/&gt;subject overlap&quot;}:::sys
+  end
+
+  subgraph SK2[&quot;sh-email-compose — recipe: brevo-compose-playbook.md&quot;]
+    direction TB
+    C1[&quot;6 · Host the image,&lt;br/&gt;map blocks, build HTML&quot;]:::assist
+    C2[&quot;7 · Create or update&lt;br/&gt;the Brevo draft + scheduledAt&quot;]:::assist
+  end
+
+  subgraph ART[&quot;ARTIFACTS&quot;]
+    direction TB
+    F1[&quot;content/campaigns/&lt;slug&gt;.md&quot;]:::rec
+    F2[&quot;email/builds/&lt;slug&gt;-&lt;term&gt;.json&quot;]:::rec
+  end
+
+  subgraph BV[&quot;BREVO&quot;]
+    direction TB
+    B1([&quot;Draft or queued campaign&lt;br/&gt;not sent&quot;]):::esp
+  end
+
+  J1 --&gt; A1 --&gt; A2 --&gt; G1
+  G1 --&gt;|pass| F1 --&gt; J2 --&gt; J3
+  G1 --&gt;|fail| A2
+  J3 --&gt; C1 --&gt; F2 --&gt; C2 --&gt; B1 --&gt; J4
+
+  style JN fill:none,stroke:#b5882f,stroke-width:1.5px,color:#b5882f
+  style SK1 fill:none,stroke:#3f8db8,stroke-width:1.5px,color:#3f8db8
+  style GT fill:none,stroke:#4e9a5c,stroke-width:1.5px,color:#4e9a5c
+  style SK2 fill:none,stroke:#3f8db8,stroke-width:1.5px,color:#3f8db8
+  style ART fill:none,stroke:#7c8b93,stroke-width:1.5px,color:#7c8b93
+  style BV fill:none,stroke:#7b76c0,stroke-width:1.5px,color:#7b76c0
+
+  classDef human  fill:#b5882f,stroke:#8a661f,color:#ffffff,stroke-width:1px
+  classDef stall  fill:#b5882f,stroke:#a4373a,color:#ffffff,stroke-width:3px
+  classDef sys    fill:#2a6f97,stroke:#1d4e6b,color:#ffffff,stroke-width:1px
+  classDef assist fill:#5c6b73,stroke:#414d54,color:#ffffff,stroke-width:1px
+  classDef ext    fill:#5c6b73,stroke:#414d54,color:#ffffff,stroke-width:1px
+  classDef rec    fill:#3a7d44,stroke:#2a5c32,color:#ffffff,stroke-width:1px
+  classDef out    fill:#3a7d44,stroke:#2a5c32,color:#ffffff,stroke-width:1px
+  classDef esp    fill:#544f8f,stroke:#3b3768,color:#ffffff,stroke-width:1px
+  classDef assure fill:#544f8f,stroke:#3b3768,color:#ffffff,stroke-width:1px
+</pre></div>
+<p>Two skills, one workflow. The brief recipe used to say the workflow ended at the brief. That was the slice talking. The outcome in <code>processes.json</code> is a scheduled draft.</p>
+<h2>Where it stalls</h2>
+<div class="tablewrap"><table><thead><tr><th>Step</th><th>What happens</th><th>Evidence</th></tr></thead><tbody><tr><td><strong>5. Hero Filename and Location</strong></td><td>Compose is forbidden to hunt Downloads or generate a substitute. Nothing is a campaign until a file is named.</td><td>Both recipes. The empty hero is the copy-lock, not a missing script.</td></tr><tr><td><strong>The second invoke</strong></td><td>A finished brief with no <code>sh-email-compose</code> run sits in <code>content/campaigns/</code> with no Brevo object.</td><td>Operator-started. No clock. <code>processes.json</code>: a clock would not earn itself.</td></tr><tr><td><strong>Cadence gate</strong></td><td>A third marketing send to the same people in one week stops compose.</td><td><code>brevo-compose-playbook.md</code> Phase 5.</td></tr></tbody></table></div>
+<h2>Waste, and what not to automate</h2>
+<p>Classified against the eight wastes in <code>vault/wkm/notes/process-mapping-methods.md</code>. The rule quoted below is that note&#x27;s, not this document&#x27;s. The note owns it; a second unattributed copy of a method rule is how the method drifts.</p>
+<blockquote>Activities get labeled &quot;necessary&quot; when they are actually workarounds for an upstream defect. If a step exists to compensate for a problem elsewhere, fix the upstream problem instead of automating the compensation.</blockquote>
+<div class="tablewrap"><table><thead><tr><th>Waste</th><th>Form here</th><th>Correct response</th></tr></thead><tbody><tr><td>Waiting</td><td>Nothing starts until Jason names a class</td><td><strong>Do not clock this.</strong> Volume is low. The human floor includes starting it.</td></tr><tr><td>Defects</td><td>The model that wrote the copy used to grade em dashes</td><td>Already fixed. <code>email/check-brief.py</code> owns those rules. Do not put them back in the recipe as a self-check.</td></tr><tr><td>Overprocessing</td><td>Two playbooks lived in <code>email/</code> next to compose runtime</td><td><strong>Move, do not merge.</strong> The copy-lock between brief and compose is the point of the split. The drawer was wrong, not the split.</td></tr><tr><td>Motion</td><td>Knowing to run a second skill after the first</td><td>Collocate the recipes. Keep two invokes.</td></tr><tr><td>Inventory</td><td>Briefs that never become drafts</td><td>A symptom of the second invoke. Visible now that the map names it.</td></tr></tbody></table></div>
+<p>Do not automate copy, hero selection, or the send. Those are the floor.</p>
+<h2>What only an interview can answer</h2>
+<ul><li><strong>How often does a brief die in <code>content/campaigns/</code> without a draft?</strong> The files cannot say. Midnight Munchies sitting open is one data point, not a rate.</li><li><strong>Is the two-invoke split costing starts, or protecting copy?</strong> If starts are dying, that is a different problem than if copy was getting rewritten in compose.</li><li><strong>Who else could name a class and pick a hero?</strong> If the answer is only Jason, the floor is already correct.</li></ul>
+<h2>Phase 2 exit criteria</h2>
+<p>Three of eight are met. This phase is <strong>not finished</strong>.</p>
+<div class="tablewrap"><table><thead><tr><th>Criterion</th><th>State</th><th>Note</th></tr></thead><tbody><tr><td>Current state process documented, not just described</td><td>Met</td><td>This map.</td></tr><tr><td>Pain points identified with stakeholder validation</td><td>Partial</td><td>Pain points identified; stakeholder validation not done.</td></tr><tr><td>Problem quantified in dollars</td><td>Open</td><td>Ticket sales are the scoreboard; the cost of an unscheduled brief is not.</td></tr><tr><td>Process readiness assessed (Mess-O-Meter)</td><td>Open</td><td>Not run.</td></tr><tr><td>Data availability, quality, bias, and provenance evaluated</td><td>Open</td><td>Live class page vs notes vs prior sends can disagree. The recipe flags contradictions; nobody has measured how often.</td></tr><tr><td>Automation candidates prioritized with risk severity</td><td>Met</td><td>The waste table above.</td></tr><tr><td>Trustworthiness baseline established, current error rates and existing oversight</td><td>Open</td><td><code>check-brief.py</code> is the existing oversight for mechanical copy defects. No rate on briefs that never become drafts.</td></tr><tr><td>Human-in-the-loop requirements identified</td><td>Met</td><td>Copy, hero, start, and pre-send check stay human by design.</td></tr></tbody></table></div>
+<h2>Sources</h2>
+<p><code>workflows/class-email/class-campaign-playbook.md</code>, <code>workflows/class-email/brevo-compose-playbook.md</code>, <code>email/check-brief.py</code>, <code>email/compose.mjs</code>, <code>email/build.mjs</code>, the <code>sh-class-campaign</code> and <code>sh-email-compose</code> skills, and the <code>sh-class-email</code> row in <code>systems-v2/scripts/processes.json</code>. Read 2026-08-20.</p>
+</div>
+<div class="doc"><div class="chips">
+<span class="chip ">design</span>
+<span class="chip ">3-design</span>
+<span class="chip ">live</span>
+<span class="chip ">updated 2026-08-20</span>
+</div>
+<h1>Class email campaign — operating design</h1>
+<p><strong>This is the design that is already running</strong>, plus one filing change: the recipes live in this folder. It is not a rebuild. A drawing of a clocked, unattended compose pipeline would be fiction.</p>
+<h2>Root cause of the confusion</h2>
+<p>The workflow was a workflow while its recipes sat in <code>email/</code> next to <code>compose.mjs</code>. The runtime folder is not the workflow drawer. Two skills are slices. They do not make two workflows.</p>
+<h2>Target swimlane</h2>
+<p>Same actors as current state. The only change that belongs on this page is where the recipes live, and that the outcome is named at the end instead of at the brief.</p>
+<div class="diagram"><pre class="mermaid">flowchart LR
+  subgraph JN[&quot;JASON — floor&quot;]
+    direction TB
+    J1([&quot;Name class + dates&lt;br/&gt;+ source&quot;]):::human
+    J2([&quot;Edit copy&quot;]):::human
+    J3([&quot;Name the hero&quot;]):::human
+    J4([&quot;Pre-send check&quot;]):::human
+  end
+
+  subgraph WF[&quot;THIS FOLDER — the workflow&quot;]
+    direction TB
+    P1[&quot;class-campaign-playbook.md&quot;]:::rec
+    P2[&quot;brevo-compose-playbook.md&quot;]:::rec
+    M1[&quot;this map, generated HTML&quot;]:::rec
+  end
+
+  subgraph RUN[&quot;RUNNERS — stay in email/&quot;]
+    direction TB
+    R1{&quot;check-brief.py&quot;}:::sys
+    R2[&quot;compose.mjs + build.mjs&quot;]:::sys
+  end
+
+  subgraph OUT[&quot;OUTCOME&quot;]
+    direction TB
+    O1([&quot;Scheduled Brevo draft&quot;]):::esp
+  end
+
+  J1 --&gt; P1 --&gt; R1 --&gt; J2 --&gt; J3 --&gt; P2 --&gt; R2 --&gt; O1 --&gt; J4
+
+  style JN fill:none,stroke:#b5882f,stroke-width:1.5px,color:#b5882f
+  style WF fill:none,stroke:#4e9a5c,stroke-width:1.5px,color:#4e9a5c
+  style RUN fill:none,stroke:#3f8db8,stroke-width:1.5px,color:#3f8db8
+  style OUT fill:none,stroke:#7b76c0,stroke-width:1.5px,color:#7b76c0
+
+  classDef human  fill:#b5882f,stroke:#8a661f,color:#ffffff,stroke-width:1px
+  classDef stall  fill:#b5882f,stroke:#a4373a,color:#ffffff,stroke-width:3px
+  classDef sys    fill:#2a6f97,stroke:#1d4e6b,color:#ffffff,stroke-width:1px
+  classDef assist fill:#5c6b73,stroke:#414d54,color:#ffffff,stroke-width:1px
+  classDef ext    fill:#5c6b73,stroke:#414d54,color:#ffffff,stroke-width:1px
+  classDef rec    fill:#3a7d44,stroke:#2a5c32,color:#ffffff,stroke-width:1px
+  classDef out    fill:#3a7d44,stroke:#2a5c32,color:#ffffff,stroke-width:1px
+  classDef esp    fill:#544f8f,stroke:#3b3768,color:#ffffff,stroke-width:1px
+  classDef assure fill:#544f8f,stroke:#3b3768,color:#ffffff,stroke-width:1px
+</pre></div>
+<h2>Who owns what</h2>
+<div class="tablewrap"><table><thead><tr><th></th><th>Owns</th><th>Stays</th></tr></thead><tbody><tr><td><strong>Jason</strong></td><td>Starting it, locking copy, picking the hero, checking before send time</td><td>Yes. Named in <code>human_floor</code>.</td></tr><tr><td><strong>sh-class-campaign</strong></td><td>Research and the brief. Stops at <code>email/check-brief.py</code> passing plus the judgment items in the brief recipe.</td><td>Yes. Skill, not the workflow.</td></tr><tr><td><strong>sh-email-compose</strong></td><td>Image, HTML, Brevo draft with <code>scheduledAt</code>. Does not rewrite copy. Does not send.</td><td>Yes. Skill, not the workflow.</td></tr><tr><td><strong>email/</strong></td><td><code>compose.mjs</code>, templates, builds, assets</td><td>Yes. Runtime.</td></tr></tbody></table></div>
+<h2>What this design refuses</h2>
+<div class="tablewrap"><table><thead><tr><th>Temptation</th><th>Why not</th></tr></thead><tbody><tr><td>Merge the two skills</td><td>Copy lock is the feature. Compose rewriting a brief is the defect the split prevents.</td></tr><tr><td>A clock</td><td>Low volume. A schedule that fires with no class named produces empty work.</td></tr><tr><td>Controls copied from review-request</td><td>That workflow went silent for 50 days because one person was all three lines. This one fails by not being started. Different failure. Do not staff a staleness KRI for a thing that should wait on a class date.</td></tr><tr><td>Moving <code>compose.mjs</code> into this folder</td><td>The composer is shared with menu, event, and vault sends. Runtime stays in <code>email/</code>.</td></tr></tbody></table></div>
+<h2>Real versus designed</h2>
+<div class="tablewrap"><table><thead><tr><th>Running today</th><th>This filing</th></tr></thead><tbody><tr><td>Two skills, two recipes, <code>check-brief.py</code>, <code>compose.mjs</code></td><td>Same</td></tr><tr><td>Recipes in <code>email/</code></td><td>Recipes in <code>workflows/class-email/</code></td></tr><tr><td>Brief recipe said the workflow ended at the brief</td><td>Outcome is the scheduled draft. The brief is the first slice.</td></tr><tr><td>No generated map</td><td>This bundle, <code>python3 render.py</code></td></tr></tbody></table></div>
+<h2>Open decisions</h2>
+<p>None that block this filing. Whether a brief-without-draft rate is worth measuring is an interview question in <code>01-discovery.md</code>, not a control to invent today.</p>
+</div>
+<div class="doc"><div class="chips">
+<span class="chip ">compose-recipe</span>
+<span class="chip ">3-design</span>
+<span class="chip ">live</span>
+<span class="chip ">updated 2026-08-20</span>
+</div>
+<h1>Sugar House Brevo Compose Playbook</h1>
+<h2>Purpose</h2>
+<p>Take a finished, user-edited Sugar House campaign brief and build a Brevo draft the user can approve: composed HTML, UTM-coded links, the hero image named in the brief, the correct audience, and the scheduled send time.</p>
+<p>This file is the recipe for the second slice of the class-email workflow. The Cursor skill (<code>sh-email-compose</code>) is the initializer and the Brevo gotcha list. The workflow lives in this folder.</p>
+<h2>Scope</h2>
+<p>Compose HTML, host the image, create or update a Brevo <strong>draft</strong>, and set recipients plus <code>scheduledAt</code>. Stop there.</p>
+<p>Do not send, do not click send-now, and do not rewrite brief copy. If the copy is wrong, send it back to the brief workflow.</p>
+<p><code>class-campaign-playbook.md</code> ends at the brief. This playbook starts after the user has edited that brief and added the hero image filename and location.</p>
+<h2>Handoff contract</h2>
+<p>The brief is locked copy. Treat every subject, preview, headline, paragraph, callout, and button label as final.</p>
+<p>The brief must include a hero image block:</p>
+<pre class="code"><code>### Hero image
+**Filename:** &lt;file.jpg&gt;
+**Location:** &lt;absolute or workspace path to the file or its folder&gt;
+**Alt:** &lt;one factual sentence&gt;
+**Linked URL:** &lt;optional, already UTM-tagged&gt;</code></pre>
+<p><code><strong>Asset:</strong></code> is an accepted alias for Location. A live HTTPS URL in Location is fine; skip a local copy if that URL already returns 200.</p>
+<p>Honor <code>DONT USE</code> and struck sections. Omit them.</p>
+<p>If Filename or Location is missing, stop and ask. Do not hunt Downloads. Do not generate a substitute hero.</p>
+<h2>Minimum input</h2>
+<ul><li>The campaign brief under <code>content/campaigns/&lt;series-slug&gt;.md</code></li><li>Which email to build, when the brief contains more than one</li></ul>
+<p>Optional:</p>
+<ul><li>Audience override (otherwise use the brief, then the live default below)</li><li>Send-time override (otherwise use the brief)</li></ul>
+<p>Do not make the user restate stable Sugar House context. Load it.</p>
+<h2>Source priority</h2>
+<ol><li>The campaign brief for copy, subject, preview, CTA labels, and UTMs</li><li><code>email/compose.mjs</code> for HTML structure (the source of record, not the master template file)</li><li>Live destination pages for link truth</li><li>Live Brevo for sender, audience IDs, cadence, and existing drafts</li><li>Client canon for voice, measurement, and operating rules</li></ol>
+<p>When the brief and a live page disagree, flag it and do not ship the broken version. When a prior sent campaign and <code>compose.mjs</code> disagree, trust <code>compose.mjs</code> plus the current chrome rules in that file.</p>
+<h2>Phase 1: Initialize</h2>
+<p>Read these before composing:</p>
+<ol><li><code>.claude/CLAUDE.md</code></li><li><code>measurement-plan.md</code> (UTM vocabulary and email steer)</li><li><code>context.yaml</code></li><li><code>brand-narrative.md</code></li><li><code>email/compose.mjs</code></li><li><code>email/SESSION-INIT-email-campaigns.md</code> (account rules only; this workflow is a write, so the orientation read-only rule does not apply)</li></ol>
+<p>Confirm live Brevo state this session:</p>
+<ul><li><code>accounts_get_account</code> is &quot;The Sugar House&quot; (<code>jason@forke.co</code>)</li><li>Sender: <code>info@sugarhousedetroit.com</code>. Resolve the sender id live (it has been 3). Use the name <strong>Sugar House Detroit</strong>, never <code>[DEFAULT_FROM_NAME]</code></li><li>Lists and segments by <strong>name</strong>, then IDs. IDs drift; do not copy them into this playbook</li><li>Recent sent campaigns, current drafts, and anything queued</li><li>Cadence: no more than two marketing sends per week per contact</li></ul>
+<p>Review at least one relevant sent campaign&#x27;s HTML so the new send matches the live block system. The rum series is the quality example for story-led content: eyebrow, headline, greeting, short paragraphs, image, callout, close.</p>
+<h2>Phase 2: Read the brief and lock destinations</h2>
+<p>Read the brief to completion. For the email being built, extract:</p>
+<ul><li>Subject and subject alternative (use the primary subject unless the user picks the alternative)</li><li>Preview / preheader</li><li>Eyebrow, headline, body, callout, secondary note, close</li><li>Campaign slug and send term</li><li>Send date and time (America/Detroit)</li><li>Audience named in the brief</li><li>Every CTA URL</li></ul>
+<p>Verify each destination this session with a live fetch:</p>
+<ul><li>HTTP 200</li><li>Path has a trailing slash before the query string</li><li>Page content matches the claim in the email (class date, menu name, hours, reservation rule)</li></ul>
+<p>Sugar House <code>sugarhousedetroit.com</code> links always take the five-parameter set from <code>measurement-plan.md</code>:</p>
+<ul><li><code>utm_source=brevo</code></li><li><code>utm_medium=email</code></li><li><code>utm_campaign</code> = the initiative in the brief (never the individual send)</li><li><code>utm_content</code> = placement (<code>hero</code>, <code>primary-cta</code>, <code>secondary-cta</code>, <code>header</code>, <code>footer</code>, <code>social-website</code>, and the other listed values)</li><li><code>utm_term</code> = the send (<code>announce</code>, <code>reminder</code>, <code>last-call</code>, or a documented custom term such as <code>drip-1</code>)</li></ul>
+<p>Do not enable Brevo&#x27;s native GA integration as a substitute for explicit UTMs. Still set the campaign <code>utmCampaign</code> field to the slug so Brevo&#x27;s own field matches. Instagram and Facebook links get no UTMs.</p>
+<p>Chrome links (logo, footer, website icon) are stamped by <code>compose.mjs</code> when you pass <code>campaignSlug</code> and <code>campaignTerm</code>. Do not duplicate them in blocks.</p>
+<h2>Phase 3: Image</h2>
+<p>Read Filename and Location from the brief. Resolve Location to a local file or an already-public HTTPS URL.</p>
+<p>Steps:</p>
+<ol><li>If Location is a local file or folder, copy the named file to <code>email/assets/&lt;filename&gt;</code> (keep the brief filename when it is already a clean slug; otherwise use <code>&lt;campaign-slug&gt;-&lt;term&gt;.&lt;ext&gt;</code>).</li><li>Publish it to a fetchable HTTPS URL. Preferred host, matching sent rum emails: <code>https://sugarhousedetroit.com/images/email/&lt;filename&gt;</code> once that file is on the live site. Copy into <code>site/public/images/email/</code> for the next site deploy. If it is not live yet this session, upload to the Sugar House R2 bucket used for public GBP images (<code>gbp-images-sugar-house</code>) and use that bucket&#x27;s managed public domain in the email <code>src</code>. Uploading the same URL to the Brevo gallery is optional; a public R2 or site URL that returns 200 is enough.</li><li>Confirm the hosted image returns 200 and is jpeg/jpg/png under 2MB.</li><li>Use the brief&#x27;s alt text. If the brief has none, write one factual sentence. No keyword stuffing.</li></ol>
+<p><code>compose.mjs</code> <code>image</code> blocks accept optional <code>href</code>. Link the hero when the brief gives a Linked URL; rum story images were often unlinked.</p>
+<h2>Phase 4: Map the brief to blocks</h2>
+<p>Save a build spec under:</p>
+<p><code>email/builds/&lt;campaign-slug&gt;-&lt;term&gt;.json</code></p>
+<p>Required fields: <code>subject</code>, <code>preheader</code>, <code>campaignSlug</code>, <code>campaignTerm</code>, <code>measurement</code>, <code>blocks</code>.</p>
+<p><code>measurement</code> is the send&#x27;s scoring contract. Compose ignores it; the send grader (<code>scripts/grade-email-send.py</code>) reads it. Translate the brief&#x27;s</p>
+<h2>Measurement section into this object when writing the build:</h2>
+<pre class="code"><code>&quot;measurement&quot;: {
+  &quot;primary&quot;: &quot;clickers | ticket_sales | visit_intent&quot;,
+  &quot;secondary&quot;: [&quot;menu_sessions&quot;, &quot;visit_clicks&quot;, &quot;class_page_sessions&quot;, &quot;ticket_sales&quot;, &quot;reservation_handoffs&quot;, &quot;clickers&quot;, &quot;click_rate&quot;, &quot;unsubs&quot;, &quot;complaints&quot;],
+  &quot;ignore&quot;: [&quot;opens&quot;],
+  &quot;outcome_window_hours&quot;: 72,
+  &quot;guardrails&quot;: { &quot;complaint_rate_max_pct&quot;: 0.1 },
+  &quot;notes&quot;: &quot;optional one-liner from the brief&quot;
+}</code></pre>
+<ul><li>Class drip → <code>primary: &quot;ticket_sales&quot;</code>, secondary includes <code>clickers</code> + <code>class_page_sessions</code>.</li><li>Menu / visit invite → <code>primary: &quot;clickers&quot;</code> or <code>&quot;visit_intent&quot;</code>, secondary includes menu/visit signals; reservation handoffs stay directional.</li><li>Always ignore opens (MPP). Complaint guardrail stays 0.1% unless the brief says otherwise.</li></ul>
+<p>After Brevo create, write <code>brevoCampaignId</code> onto the same build JSON so the grader can join without scraping the brief.</p>
+<p>Map brief sections to <code>compose.mjs</code> block types. Choose the layout by the email&#x27;s job. Do not default every send to the rum series.</p>
+<p><strong>Story-led</strong> (class drip, origin lesson, one fact per send): rum model. Eyebrow, headline, greeting, several short paragraphs, image mid-lesson as illustration, more copy, callout, close. The image can sit later because the copy is the exhibit.</p>
+<p><strong>Invitation</strong> (seasonal menu, event, promo, schedule): exhibit model. The picture is the argument. Keep setup short enough that the image appears after one or two paragraphs, then write a caption that points at what is in the frame. Then the CTA.</p>
+<ol><li><code>eyebrow</code>, <code>headline</code>, <code>greeting</code></li><li>One or two short setup paragraphs. No parable. Give the image a reason to exist.</li><li><code>image</code>. Linked when it goes to the primary destination.</li><li>One or two paragraphs that name what the reader is looking at, then make the invitation</li><li><code>callout</code></li><li>Secondary note as <code>details</code> plus <code>inline_link</code>. No second dark callout</li><li><code>close</code></li></ol>
+<p>Do not park the image immediately above the CTA with nothing after it. That reads as a spacer. Do not put the image first with no setup. That reads as a header graphic. Do not import rum length onto a menu send.</p>
+<p>Class lineup emails may use <code>link_list</code> or <code>details</code> instead of a single callout.</p>
+<p>Greeting: ignore a raw <code>Hey {{ contact.FIRSTNAME }},</code> line; the renderer already has the if/else fallback. Close with <code>See you at the bar,&lt;br&gt;The Sugar House team</code> unless the brief specifies something else.</p>
+<p>Rules:</p>
+<ul><li>Do not invent copy, recipes, testimonials, or class inclusions</li><li>No em dashes, including HTML entities</li><li>Bitters in dashes</li><li>Greeting uses <code>{% if contact.FIRSTNAME %}</code> / <code>{% else %}Hey there,{% endif %}</code>. Never <code>| default:</code></li><li>Button labels stay as briefed; <code>compose.mjs</code> already uppercases via CSS</li><li>Block URLs are used as-is. Stamp UTMs on them before compose</li><li>If a button label and its URL disagree, route to the destination that matches the label and the surrounding copy, stamp UTMs, and tell the user in the handoff. Do not silently keep a leftover menu URL on a visit button</li></ul>
+<p>Build HTML with:</p>
+<pre class="code"><code>node email/build.mjs email/builds/&lt;campaign-slug&gt;-&lt;term&gt;.json &gt; /tmp/&lt;campaign-slug&gt;-&lt;term&gt;.html</code></pre>
+<p>Do not hand-author the chrome. Do not start from <code>email/templates/sh-master-template.html</code>.</p>
+<h2>Phase 5: QA before Brevo</h2>
+<p>Check the built HTML:</p>
+<ul><li>Subject and preheader match the brief</li><li>No em dashes</li><li>Every <code>sugarhousedetroit.com</code> href includes all five UTM parameters</li><li>Every such href has a trailing slash before <code>?</code></li><li>Chrome links include <code>utm_term</code></li><li>Destinations fetched live this session and returned 200</li><li>Image src is HTTPS, has alt text, and the file loads</li><li>Unsubscribe token <code>{{ unsubscribe }}</code> is present (chrome provides it)</li><li>No <code>tag</code> will be sent to the create call (it 500s on this account)</li></ul>
+<p>Cadence: if this send would be a third marketing email to the same people in the same week, stop and say so.</p>
+<h2>Phase 6: Create the Brevo draft</h2>
+<p>Resolve audience live by name:</p>
+<ul><li>Default for broad content and class-story sends: segment <strong>Marketable (All)</strong>, excluding segment <strong>Visitor</strong>. That is the rum / absinthe / World Whisky pattern</li><li>A class-schedule dump may target Marketable (All) with no exclusion if the brief says so and the last comparable send did that</li><li>Never union extra lists onto a segment. Brevo unions lists and segments, it does not intersect</li><li>One self-contained audience per send</li></ul>
+<p>Create with <code>email_campaign_management_create_email_campaign</code>:</p>
+<ul><li><code>name</code>: <code>YYYY-MM-DD_&lt;type&gt;_&lt;slug&gt;_&lt;stage&gt;_&lt;audience&gt;</code>, all lowercase. Underscores separate tokens, hyphens live inside them. Derive it, do not compose it by hand: the date is <code>scheduledAt</code>, <code>&lt;slug&gt;</code> is the build&#x27;s <code>campaignSlug</code> (identical to <code>utmCampaign</code> below), <code>&lt;stage&gt;</code> is its <code>campaignTerm</code>. <code>&lt;type&gt;</code> is one of <code>class</code> <code>event</code> <code>menu</code> <code>vault</code> <code>promo</code> <code>review</code> <code>lifecycle</code> <code>merch</code>. <code>&lt;audience&gt;</code> defaults to <code>all</code>; use <code>all-x-visitor</code> for the standard exclusion, or the segment shorthand when a second send of the same slug goes elsewhere. Example: <code>2026-08-17_class_mix-207-09-26-26_announce_all-x-visitor</code>. The name must never contain a space, a slash, or an em dash. Brevo falls back to the campaign NAME as <code>utm_campaign</code> when <code>utmCampaign</code> is empty, and five March sends are sitting in GA4 under names like <code>Warm Up 1 - Welcome Back  Class  Review - MC K-Z</code> because of it</li><li><code>sender</code>: <code>{ &quot;email&quot;: &quot;info@sugarhousedetroit.com&quot;, &quot;name&quot;: &quot;Sugar House Detroit&quot; }</code> or the live sender id plus that name. Never both email and id</li><li><code>replyTo</code>: <code>info@sugarhousedetroit.com</code></li><li><code>subject</code>, <code>previewText</code>, <code>htmlContent</code> from the build</li><li><code>recipients</code>: <code>{ &quot;segmentIds&quot;: [...], &quot;exclusionSegmentIds&quot;: [...] }</code>. Create rejects <code>segments</code> / <code>excludedSegments</code>; those names appear only on GET</li><li><code>scheduledAt</code>: the brief time as an offset datetime, e.g. <code>2026-08-14T11:30:00-04:00</code> (America/Detroit). Setting this schedules the campaign. That is intended: the user approves a timed draft, not a send-now</li><li><code>mirrorActive</code>: true</li><li><code>utmCampaign</code>: the campaign slug</li><li><strong>Do not pass <code>tag</code></strong></li><li><strong>Do not send</strong> (<code>send_email_campaign_now</code> is forbidden here)</li></ul>
+<p>If a draft for this exact send already exists, update that draft instead of creating a duplicate. Never PUT <code>htmlContent</code> onto a draft the user has edited in the Brevo UI this session.</p>
+<p>After create, fetch the campaign back and confirm:</p>
+<ul><li>status is <code>draft</code> or <code>queued</code> (queued means the schedule is attached; it has not sent)</li><li>subject, preview, sender name, recipients, and <code>scheduledAt</code></li><li>HTML still contains the UTM-coded links and the hosted image</li></ul>
+<h2>Completion boundary</h2>
+<p>The workflow ends when the Brevo draft exists and has been re-fetched.</p>
+<p>Before handing it off, verify:</p>
+<ul><li>Copy matches the brief</li><li>Links are live and UTM-complete</li><li>Image loads</li><li>Audience matches the brief or the documented default</li><li>Scheduled time matches the brief in America/Detroit</li><li>Cadence is still at most two marketing sends that week</li><li>Nothing was sent</li></ul>
+<p>Append a short <strong>Built</strong> note to the brief: Brevo campaign id, scheduled time, audience names, image URL, and the build spec path.</p>
+<h2>Final handoff</h2>
+<p>Report:</p>
+<ul><li>Brevo campaign id and name</li><li>Subject / preview</li><li>Audience (names, then IDs as resolved live)</li><li>Scheduled time in ET</li><li>Image URL used</li><li>Link QA (destinations + UTM)</li><li>Cadence note</li><li>Confirmation that the campaign was <strong>not</strong> sent</li><li>Anything the user must check before the scheduled time (sender name, a flagged page defect, a missing Tock widget)</li></ul>
+<h2>Suggested invocation</h2>
+<blockquote>Run <code>sh-email-compose</code> using @clients/sugarhouse/content/campaigns/midnight-munchies.md</blockquote>
+</div>
+<div class="doc"><div class="chips">
+<span class="chip ">brief-recipe</span>
+<span class="chip ">3-design</span>
+<span class="chip ">live</span>
+<span class="chip ">updated 2026-08-20</span>
+</div>
+<h1>Sugar House Class Campaign Playbook</h1>
+<h2>Purpose</h2>
+<p>Turn a Sugar House class idea into a researched campaign brief with complete email copy without losing the quality, voice, or measurement discipline established by the successful rum, absinthe, World Whisky, and Cocktail Foundations campaigns.</p>
+<p>This file is the recipe for the first slice of the class-email workflow. The Cursor skill is only the initializer. The workflow lives in this folder.</p>
+<h2>Scope</h2>
+<p>Research the class, design the campaign arc, write every email, and save the campaign brief. This playbook ends at the finished brief.</p>
+<p>Do not compose HTML, source images, create or update Brevo drafts, schedule campaigns, or send email. After the user edits the brief and adds the hero image filename and location, that handoff is <code>sh-email-compose</code> / <code>brevo-compose-playbook.md</code>.</p>
+<h2>Minimum input</h2>
+<p>The user should provide:</p>
+<ul><li>Class name or Mixology number</li><li>Class date</li><li>Desired number of emails</li><li>Desired send dates</li><li>The best available class-notes, handout, deck, or source file</li></ul>
+<p>Optional but useful:</p>
+<ul><li>A positioning idea or audience concern</li><li>Whether several related classes should share one campaign</li><li>A known deadline, event tie-in, or seasonal hook</li></ul>
+<p>Do not make the user restate stable Sugar House context. Load it.</p>
+<h2>Source priority</h2>
+<p>Use sources in this order:</p>
+<ol><li>Live class page for the current public offer, date, time, and confirmed experience</li><li>Class notes or handout for curriculum, recipes, technique, and factual depth</li><li>Private-class deck for positioning and curriculum summaries</li><li>Brevo for sent campaign content, audiences, and performance</li><li>Client canon for voice, measurement, and operating rules</li><li>Reputable external sources for facts that are absent or need verification</li></ol>
+<p>When sources disagree, flag the contradiction. Do not silently choose the version that makes better copy.</p>
+<h2>Phase 1: Initialize the client</h2>
+<p>Read these before drafting:</p>
+<ol><li><code>.claude/CLAUDE.md</code></li><li><code>measurement-plan.md</code></li><li><code>context.yaml</code></li><li><code>brand-narrative.md</code></li><li><code>email/SESSION-INIT-email-campaigns.md</code></li></ol>
+<p>Treat orientation as read-only. Confirm the connected Brevo account, current audience names, recent sent campaigns, current drafts, and live templates. Resolve all IDs live rather than copying them into this playbook.</p>
+<p>Pull at least:</p>
+<ul><li>The latest class-schedule campaign</li><li>The most relevant successful story-led class campaign</li><li>Any earlier campaign for the same class or spirit</li><li>Current performance for those sends</li></ul>
+<p>Use clicks and ticket sales as the scoreboard. Opens are directional because Apple Mail Privacy Protection inflates them.</p>
+<h2>Phase 2: Establish class truth</h2>
+<p>Read the supplied source file to completion. Large self-contained HTML handouts often contain embedded fonts and images, so search for headings and read the content section rather than dumping the entire file.</p>
+<p>Open the live class page and verify:</p>
+<ul><li>Class title and number</li><li>Date and time</li><li>Duration</li><li>Confirmed tastings and builds</li><li>Audience framing</li><li>Public description</li><li>Booking URL</li></ul>
+<p>Check for copied text from another class, mismatched spirit names, stale dates, or unsupported promises. Put defects in a <code>Preflight issue</code> section of the brief. Do not let a page defect leak into email copy.</p>
+<p>Use web research when a factual story will carry an email. Prefer primary sources, respected reference works, established publications, and recognized category authorities. Keep a short fact ledger in the brief.</p>
+<h2>Phase 3: Learn from prior campaigns</h2>
+<p>Do not copy an old campaign&#x27;s topic. Reuse the proven persuasion model:</p>
+<ol><li>Give the reader a complete and interesting story.</li><li>Teach with authority and generosity.</li><li>Reserve the sensory comparison, bartender feedback, and hands-on build for the class.</li><li>End with a concrete invitation.</li></ol>
+<p>The strongest Sugar House class emails use:</p>
+<ul><li>A bartender with an opinion, not a brochure narrator</li><li>One memorable fact, conflict, transformation, or technique per email</li><li>Specific sensory language</li><li>A clear bridge from knowing to tasting or building</li><li>Increasing CTA strength across the series</li><li>A callback or progression that makes the sends feel related</li></ul>
+<p>Avoid turning three emails into three versions of the same announcement.</p>
+<h2>Phase 4: Design the arc</h2>
+<p>Give each email one job.</p>
+<p>A useful three-email progression:</p>
+<ol><li>Reframe a myth, origin, or category misunderstanding.</li><li>Make the class tangible through a sensory transformation or production insight.</li><li>Convert through a cocktail, technique, or familiar point of entry.</li></ol>
+<p>For two emails:</p>
+<ol><li>Establish the central argument and why the class matters.</li><li>Make the curriculum practical and give the strongest invitation.</li></ol>
+<p>Five-part campaigns are not the default. Use fewer, better sends unless the sales window and available material justify more.</p>
+<p>Before drafting, write the arc as:</p>
+<ul><li>Send date</li><li>Job</li><li>Angle</li><li>Lesson</li><li>CTA strength</li></ul>
+<p>Reject an arc if two emails teach substantially the same thing.</p>
+<h2>Phase 5: Write the brief</h2>
+<p>Save briefs under:</p>
+<p><code>content/campaigns/&lt;descriptive-series-slug&gt;.md</code></p>
+<p>Use this structure:</p>
+<ol><li><code># Campaign Brief: &lt;Series Name&gt;</code></li><li>Campaign metadata:</li><li>Class or classes</li><li>Class date or dates</li><li>Campaign slug</li><li>Goal</li><li>Audience</li><li>Cadence</li><li>Positioning when needed</li><li>Exit condition</li><li><code>## Strategy</code></li><li>Campaign arc</li><li><code>## Campaign links</code></li><li>One section per email containing:</li><li>Send</li><li>Purpose</li><li>Subject</li><li>Subject alternative</li><li>Preview</li><li>Eyebrow</li><li>Headline</li><li>Full body</li><li>Hero image stub (<code>Filename</code>, <code>Location</code>, <code>Alt</code>, optional <code>Linked URL</code>). Leave Filename and Location empty. The user fills them after editing copy, before <code>sh-email-compose</code></li><li>Class callout or lineup</li><li>CTA label and fully tagged URL</li><li>Close</li><li>Optional class-week callout or sellout contingency</li><li>Fact ledger or source notes</li><li>Measurement</li><li>Preflight issues, when present</li></ol>
+<p>Use these as quality examples:</p>
+<ul><li><code>content/campaigns/absinthe-series.md</code></li><li><code>content/campaigns/world-whisky-series.md</code></li><li><code>content/campaigns/foundations-series.md</code></li><li><code>content/campaigns/rum-series.md</code></li></ul>
+<p>Examples are evidence of structure and quality, not copy templates.</p>
+<h2>Copy rules</h2>
+<p>Every draft must follow these rules:</p>
+<ul><li>Bartender point of view with an actual opinion</li><li>Useful before promotional</li><li>Clear enough for a curious beginner without talking down to an enthusiast</li><li>One primary action per email</li><li>Short paragraphs suitable for mobile</li><li>Specific facts and real technique names</li><li>No invented recipes, bottle details, testimonials, or class inclusions</li><li>No em dashes, including HTML entities</li><li>No fake urgency</li><li>Never disclose remaining seat counts</li><li>No discount-led framing</li><li>No generic newsletter language</li><li>No actual-speakeasy, hidden-door, password, or exclusivity framing</li><li>Bitters are measured in dashes</li><li>Sugar House is a craft cocktail bar, not a restaurant</li></ul>
+<p>Do not withhold the educational payoff to manufacture curiosity. The class sells the tasting, comparison, correction, and hands-on build.</p>
+<h3>Subject and preview</h3>
+<ul><li>Prefer clear specificity or genuine curiosity over wordplay.</li><li>Keep the subject focused on the story, not the class number.</li><li>Use the preview to complete the thought rather than repeat the subject.</li><li>Provide one subject alternative.</li><li>Do not use an emoji by default.</li></ul>
+<h3>CTA progression</h3>
+<p>Escalate naturally:</p>
+<ul><li>Early: <code>See the Class</code>, <code>Explore the Class</code></li><li>Middle: <code>Taste the Difference</code>, <code>Build the Drink</code></li><li>Final: <code>Save Your Spot</code>, <code>Join the Class</code></li></ul>
+<p>Use a stronger custom CTA when the email&#x27;s lesson supports it.</p>
+<h2>Tracking rules</h2>
+<p>Follow the UTM vocabulary in <code>measurement-plan.md</code>.</p>
+<p>For a single class instance:</p>
+<ul><li><code>utm_source=brevo</code></li><li><code>utm_medium=email</code></li><li><code>utm_campaign=mix-&lt;level&gt;-&lt;MM-DD-YY&gt;</code></li><li><code>utm_content</code> identifies placement</li><li><code>utm_term</code> identifies the send</li></ul>
+<p>Preferred send terms are:</p>
+<ul><li><code>announce</code></li><li><code>reminder</code></li><li><code>last-call</code></li></ul>
+<p>For a campaign promoting multiple class instances, individual class links use their class-instance campaigns. A series landing-page CTA may use a descriptive series campaign documented in the brief.</p>
+<p>Do not enable Brevo&#x27;s native GA integration as a substitute for explicit UTMs.</p>
+<h2>Completion boundary</h2>
+<p>This slice ends after the brief is written and checked. The workflow ends when <code>sh-email-compose</code> has a scheduled Brevo draft.</p>
+<h3>1. Run the deterministic checks. They are not yours to grade.</h3>
+<pre class="code"><code>python3 email/check-brief.py content/campaigns/&lt;series-slug&gt;.md</code></pre>
+<p>Exit 1 means the brief is not ready. The script decides em dashes and HTML entities, UTM vocabulary against the Tracking rules above, emoji, subject alternatives, and subject/preview overlap. Do not self-assess these and do not report them as verified from reading. Whatever wrote the copy cannot grade it.</p>
+<p>That is not a stylistic claim. This list previously said &quot;No em dashes appear in text or entities&quot; while the Copy rules said it a second time, and three of seven shipped briefs contained six of them, two hiding inside Brevo campaign names.</p>
+<h3>2. Then verify the judgment items. No script can decide these.</h3>
+<ul><li>The arc gives each email a distinct job.</li><li>Every email contains a complete lesson and a clear class bridge.</li><li>Copy follows Sugar House voice and craft guardrails.</li><li>Every factual claim is supported by the class sources or fact ledger.</li><li>Class dates, times, builds, and CTA destinations match the live pages.</li><li>No copied details from another class remain.</li></ul>
+<p><em>(Dropped 2026-08-16: &quot;The saved Markdown passes repository lint checks.&quot; No markdownlint, mdl, or vale config exists in this repo. A check with nothing behind it is worse than no check, because it reads as coverage.)</em></p>
+<p>Do not compose HTML, source or select images, create or update Brevo drafts, schedule campaigns, or send email. Next step after the user edits the brief and adds the hero image filename and location: <code>sh-email-compose</code>.</p>
+<h2>Deliverability and cadence</h2>
+<p>Before recommending or drafting dates:</p>
+<ul><li>Keep marketing density at no more than two sends per week per contact.</li><li>Account for already scheduled or recently sent campaigns.</li><li>Prefer excluding low-intent audiences when a verified prior pattern supports it.</li><li>Stop later class sends when the class sells out.</li><li>Treat a complaint rate under 0.1 percent as the guardrail.</li><li>Flag unusual bounce spikes rather than averaging them away.</li></ul>
+<h2>Final handoff</h2>
+<p>Report:</p>
+<ul><li>Brief path</li><li>Campaign arc</li><li>Important source contradiction or preflight issue</li><li>Confirmation that no Brevo write occurred</li><li>Reminder: edit the brief, add hero Filename and Location, then run <code>sh-email-compose</code></li></ul>
+<h2>Suggested invocation</h2>
+<blockquote>Run the Sugar House class campaign workflow for Mixology 208: Aperitifs, Digestifs and Amari on November 21. Create three emails for [dates]. Use @clients/sugarhouse/content/class-notes-amari.html.</blockquote>
+</div>
+<footer>Generated 2026-08-20 by render.py from 01-discovery.md, 02-design.md, brevo-compose-playbook.md, class-campaign-playbook.md. Do not edit this file.</footer>
+</div><script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script><script>if(window.mermaid&&!document.querySelector("svg.mermaid"))mermaid.initialize({startOnLoad:true,securityLevel:"loose"});</script></body></html>

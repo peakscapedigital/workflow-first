@@ -1,22 +1,25 @@
-## Development
+# workflow-first
 
-When starting the dev server, use background mode:
+Standalone Astro Starlight course site: workflow-first AI enablement.
 
+## Canon
+
+Learner-facing content lives here. Research canon stays in `vault/wkm/notes/workflow-is-the-unit.md` and related notes — adapt, do not symlink vault paths into published pages.
+
+## Writing gate
+
+`Workspace/writing/universal/anti-ai-patterns.md`
+
+## Build
+
+```bash
+npm install
+npm run dev
+npm run build
 ```
-astro dev --background
-```
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+Static output: `dist/`. Deploy via Cloudflare Pages (`.github/workflows/deploy.yml`).
 
-## Documentation
+## Plan
 
-Full documentation: https://docs.astro.build
-
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+`.cursor/plans/workflow-first-enablement-course_b4e8f2a1.plan.md`
