@@ -8,7 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'Workflow-First AI Enablement',
 			description: 'Think in workflow units, not chatbots.',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/jasonleinart/workflow-first' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/peakscapedigital/workflow-first' }],
 			sidebar: [
 				{ label: 'Start here', slug: 'index' },
 				{ label: 'Concepts', items: [{ autogenerate: { directory: 'concepts' } }] },
